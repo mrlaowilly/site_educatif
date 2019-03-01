@@ -22,18 +22,101 @@
     
    <nav>
    	 <div class="main_nav">
-   	 		<img class="img1" src="images/hold.png">
-   	 				<ul class="nav_block">
-
-   	 						<li class="nav_item"><a href="#">COMPETENCES</a></li>
-					        <li class="nav_item"><a href="#">OUTILS</a></li>
-							<li class="nav_item"><a href="#">FORMATION</a></li>
-							<li class="nav_item"><a href="#">FORMATION</a></li>
-							<li class="nav_item"><a href="#">HOBBIES</a></li>
-							<li class="nav_item"><a href="#">LANGUES</a></li>
-							<li class="nav_item"><a href="#">HOBBIES</a></li>
-							<li class="nav_item"><a href="#">LANGUES</a></li>
-				   </ul>
+   	 		<img class="img1 btnClick" src="images/hold.png">
+			<ul class="nav_block">
+				<li class="nav_item">
+					<a class="btnClick" href="#">COMPETENCES</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<span><a href="#">jeu 1</a></span>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 2</a>
+						</li>
+					</ul>
+				</li>					
+		        <li class="nav_item">
+		        	<a class="btnClick" href="#">OUTILS</a>
+		        	<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 4</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 5</a>
+						</li>
+					</ul>
+		        </li>	        
+				<li class="nav_item">
+					<a class="btnClick" href="#">FORMATION</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 76</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 6</a>
+						</li>
+					</ul>
+				</li>			
+				<li class="nav_item">
+					<a class="btnClick" href="#">FORMATION</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 52</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 87</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="nav_item">
+					<a class="btnClick" href="#">HOBBIES</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 95</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 254</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="nav_item">
+					<a class="btnClick" href="#">LANGUES</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 98</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 22</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="nav_item">
+					<a class="btnClick" href="#">HOBBIES</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 95</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 2588</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="nav_item">
+					<a class="btnClick" href="#">LANGUES</a>
+					<ul class="sous_nav_block">
+						<li class="sous_nav_item">
+							<a href="#">jeu 1556</a>
+						</li>
+						<li class="sous_nav_item">
+							<a href="#">jeu 2215</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
 
 
 
@@ -44,16 +127,7 @@
 
 
 
-<script> 
-const imgBtn = document.querySelector('.img1');
-const mainnav = document.querySelector('.nav_block');
-imgBtn.addEventListener('click', function(){
-  mainnav.classList.toggle('active');
-})
 
-
-
- </script>
-
+ <script src="script.js"></script>
 </body>
 </html>
