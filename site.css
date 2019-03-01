@@ -32,6 +32,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	background-size: cover;
+	background-image: url(images/fond1.jpg);
 	line-height: 1;
 	font-family: 'Shadows Into Light', cursive;
 }
@@ -72,8 +74,7 @@ a{
 	 visibility: visible;
 	 justify-self:center;
 }
-.nav_block{    
-
+.nav_block{ 
 	display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -84,23 +85,44 @@ a{
     height: 0;
     overflow: hidden;
     transition: height 2s;
-
 }
-.nav_item a{
+.img1:hover + .nav_block, .nav_block.active{
+   height: 100%;
+}
 
-     
+.nav_item a{
         text-align: center;
         display: block;
         padding: 13%;
         background-color: red;
 }
-
 .nav_item:hover a{
-
 	color: black;
 	background-color:white;
 }
 
-.img1:hover + .nav_block, .nav_block.active{
-   height: 100%;
+
+
+.sous_nav_block{
+	height: 0;
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+    transition: height 2s;
 }
+.sous_nav_block.active{
+	height: auto;
+}
+
+
+.sous_nav_item a {
+	display: block;
+} 
+
+.sous_nav_item:hover a{
+	color: yellow;
+	background-color: blue;
+}
+
