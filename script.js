@@ -1,9 +1,7 @@
-const btnClicks = document.querySelectorAll('.btnClick');
-btnClicks.forEach(function(btnClick){
-	btnClick.addEventListener('click', toggleActive);
-});
+const BTNCLICKS = document.querySelectorAll('.btnClick');
+BTNCLICKS.forEach( BTNCLICK=> BTNCLICK.addEventListener('click', targetToggle));
 
-function toggleActive(){
-	this.nextElementSibling.classList.toggle('active');
-}
-
+ function targetToggle() {
+   const TARGET = document.querySelector(this.dataset.target);
+   TARGET.classList.toggle('active');
+ }
