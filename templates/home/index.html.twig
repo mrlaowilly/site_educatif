@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans mon site!{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">{% endblock %}
+
+{% block header %}
+  <div class="header">
+    <h1>Bienvenue sur le site !</h1>
+
+{% endblock %}
+
+{% block body %}
+<nav>
+  <div class="main_nav">
+    <img class="menuIcon btnClick" src="images/hold.png" data-target="#nav_block">
+    <div class="menuLateralBar btnHover" data-target="#nav_block"></div>
+    <ul class="nav_block wrapper" id="nav_block">
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block">COMPETENCES</a>
+        <ul class="sous_nav_block" id="snav_block">
+          <li class="sous_nav_item">
+            <span><a href="#">jeu 1</a></span>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 2</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block1">OUTILS</a>
+        <ul class="sous_nav_block" id="snav_block1">
+          <li class="sous_nav_item">
+            <a href="#">jeu 4</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 5</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block2">FORMATION</a>
+        <ul class="sous_nav_block" id="snav_block2">
+          <li class="sous_nav_item">
+            <a href="#">jeu 76</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 6</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block3">FORMATION</a>
+        <ul class="sous_nav_block" id="snav_block3">
+          <li class="sous_nav_item">
+            <a href="#">jeu 52</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 87</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block4">HOBBIES</a>
+        <ul class="sous_nav_block" id="snav_block4">
+          <li class="sous_nav_item">
+            <a href="#">jeu 95</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 254</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block5">LANGUES</a>
+        <ul class="sous_nav_block" id="snav_block5">
+          <li class="sous_nav_item">
+            <a href="#">jeu 98</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 22</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block6">HOBBIES</a>
+        <ul class="sous_nav_block" id="snav_block6">
+          <li class="sous_nav_item">
+            <a href="#">jeu 95</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 2588</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav_item">
+        <a class="btnClick" href="#" data-target="#snav_block7">LANGUES</a>
+        <ul class="sous_nav_block" id="snav_block7">
+          <li class="sous_nav_item">
+            <a href="#">jeu 1556</a>
+          </li>
+          <li class="sous_nav_item">
+            <a href="#">jeu 2215</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+
+
+  </div>
+
+</nav>
+<header>
+
+</header>
+
+{% endblock %}
+
+{% block footer %}
+  <p>© Copyright 2019. All Rights are Reserved.</p>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>const BTNCLICKS = document.querySelectorAll('.btnClick');
+BTNCLICKS.forEach( BTNCLICK=> BTNCLICK.addEventListener('click', targetToggle));
+
+ function targetToggle() {
+   const TARGET = document.querySelector(this.dataset.target);
+   TARGET.classList.toggle('active');
+ }</script>
+ {% endblock %}
