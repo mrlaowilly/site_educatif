@@ -2,7 +2,7 @@
 
 {% block title %}Bienvenue dans mon site!{% endblock %}
 
-{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">{% endblock %}
 
 {% block header %}
   <div class="header">
@@ -11,9 +11,10 @@
 {% endblock %}
 
 {% block body %}
+
 <nav>
   <div class="main_nav">
-    <img class="menuIcon btnClick" src="images/hold.png" data-target="#nav_block">
+    <img class="menuIcon btnClick" src="{{ asset('image/hold.png') }}" data-target="#nav_block">
     <div class="menuLateralBar btnHover" data-target="#nav_block"></div>
     <ul class="nav_block wrapper" id="nav_block">
       <li class="nav_item">
@@ -121,6 +122,7 @@
 
 {% endblock %}
 
+
 {% block footer %}
   <p>© Copyright 2019. All Rights are Reserved.</p>
 
@@ -133,5 +135,6 @@ BTNCLICKS.forEach( BTNCLICK=> BTNCLICK.addEventListener('click', targetToggle));
  function targetToggle() {
    const TARGET = document.querySelector(this.dataset.target);
    TARGET.classList.toggle('active');
- }</script>
+ }
+ </script>
  {% endblock %}
