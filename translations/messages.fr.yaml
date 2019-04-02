@@ -1,0 +1,11 @@
+blog:
+  title: Le titre de votre papier
+  updatedAt: Modifier le
+  descriptif: Le papier
+  author: L'ecrivain
+  user: L'adresse électronique de l'utilisateur
+
+
+Blog index: La grande liste
+
+Create new Blog: Création d'un nouveau papier
