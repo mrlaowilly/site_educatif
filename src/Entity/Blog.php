@@ -24,7 +24,7 @@ class Blog
     /**
      * @ORM\Column(type="datetime")
      */
-    private $datetime;
+    private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -42,14 +42,14 @@ class Blog
     private $author;
 
     /**
-     * @ORM\Column(type="string", length=150)
-     */
-    private $actions;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -68,14 +68,14 @@ class Blog
         return $this;
     }
 
-    public function getDatetime(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->datetime;
+        return $this->createdAt;
     }
 
-    public function setDatetime(\DateTimeInterface $datetime): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->datetime = $datetime;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -112,18 +112,6 @@ class Blog
     public function setAuthor(string $author): self
     {
         $this->author = $author;
-
-        return $this;
-    }
-
-    public function getActions(): ?string
-    {
-        return $this->actions;
-    }
-
-    public function setActions(string $actions): self
-    {
-        $this->actions = $actions;
 
         return $this;
     }
