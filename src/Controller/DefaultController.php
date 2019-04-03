@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\BlogRepository;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,9 +19,22 @@ class DefaultController extends AbstractController
      * @return Response
      * @Route("/home", name="home")
      */
-    public function index()
+    public function index(BlogRepository $repository)
     {
-        return $this->render('default/index.html.twig');
+        $blogs = $repository->findAll(); // on demande a la base de données tous les blogs
+
+        return $this->render('default/index.html.twig', [
+            'blogs' => $blogs
+        ]);
+    }
+
+    /**
+     * @Route("/blog/{id}", name="blog_show")
+     * @return Response
+     */
+    public function blog()
+    {
+        return $this->render('default/blog.html.twig');
     }
 
     /**
