@@ -3,10 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+        {% endblock %}
     </head>
     <body>
+        {% block header %}
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div style="..."><a href="{{ path('logout_route') }}">Se deconnecter </a>  </div>
+            <strong>{{ app.user.email }}</strong>
+        {% else %}
+            {% if app.request.pathinfo != '/login' %}
+                <div style="..."><a href="{{ path('app_login') }}">Se connecter </a>  </div>
+            {% endif %}
+        {% endif %}
+        {% endblock %}
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+
+
+{##}

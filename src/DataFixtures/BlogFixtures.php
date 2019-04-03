@@ -21,7 +21,7 @@ class BlogFixtures extends Fixture
 
         $blog1 = new Blog();
         $blog1-> setTitle('blog1')
-            ->setDescriptif('Le premier blog')
+            ->setDescriptif('Le premier article diver')
             ->setAuthor('Pierre');
 
         $manager->persist($blog1);
