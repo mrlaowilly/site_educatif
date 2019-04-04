@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Page;
 use App\Entity\User;
 use App\Repository\BlogRepository;
 use App\Repository\PageRepository;
@@ -41,6 +42,17 @@ class DefaultController extends AbstractController
         ]);
     }
 
+
+    //<!-- create de la méthode show_page avec sa route  -->
+    /**
+     * @Route("/blog/page/{id}", name="blog_page_show")
+     */
+    public function showPage(Page $page)
+    {
+        return $this->render('default/page.html.twig',[
+            'page' => $page
+        ]);
+    }
     /**
      * @Route("/register", name="register")
      */

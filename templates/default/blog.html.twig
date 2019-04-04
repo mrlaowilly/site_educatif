@@ -19,7 +19,7 @@
                 <td>{{ page.title }}</td>
                 <td>{{ page.content }}</td>
                 <td>
-                    <a href="{{ path('page_show', {'id': page.id}) }}">show</a>
+                    <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
                     {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
                     {% endif %}
