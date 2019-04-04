@@ -19,6 +19,15 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
+    public function FindByBlogId($id)
+    {
+        return ($qb = $this->createQueryBuilder('page'))//alias c le pseudo de la table page
+            ->where($qb->expr()->eq('page.blog', ':id')) // on compare $id a blog ID
+            ->setParameter(':id', $id) // affectation de variable
+            ->getQuery() //fabrique la requette
+            ->getResult(); // recois les resultats
+    }
+
     // /**
     //  * @return Page[] Returns an array of Page objects
     //  */

@@ -1,11 +1,11 @@
 blog:
-  title: Le titre de votre papier
+  title: Le titre du blog
   updatedAt: Modifier le
-  descriptif: Le papier
-  author: L'ecrivain
-  user: L'adresse électronique de l'utilisateur
+  descriptif: desciption
+  author: L'auteur
+  user: L'adresse électronique d'admin
 
 
-Blog index: La grande liste
+Blog index: Liste des BLOGs
 
-Create new Blog: Création d'un nouveau papier
+Create new Blog: Création d'un nouveau blog

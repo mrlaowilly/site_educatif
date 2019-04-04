@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Repository\BlogRepository;
+use App\Repository\PageRepository;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,9 +33,12 @@ class DefaultController extends AbstractController
      * @Route("/blog/{id}", name="blog_show")
      * @return Response
      */
-    public function blog()
+    public function blog(PageRepository $repository, $id) // recupere le repositoy pour faire de la requette SQL
     {
-        return $this->render('default/blog.html.twig');
+        $pages = $repository->FindByBlogId($id);
+        return $this->render('default/blog.html.twig', [
+            'pages'=>$pages // les clef et la valeur
+        ]);
     }
 
     /**
@@ -68,4 +72,23 @@ class DefaultController extends AbstractController
             'register_form'=> $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact()
+    {
+        return $this->render('default/contact.html.twig');
+    }
+
+    /**
+     * @Route("/apropos", name="apropos")
+     */
+    public function apropos()
+    {
+        return $this->render('default/apropos.html.twig');
+    }
+
+
+
 }
