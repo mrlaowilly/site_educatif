@@ -59,6 +59,24 @@ class DefaultController extends AbstractController
             'page' => $page
         ]);
     }
+
+    /**
+     * @Route("/blog/page/create/{id}", name="blog_page_create")
+     */
+    public function createPage(
+        Request $request,
+        EntityManagerInterface $manager,
+        $id,
+        BlogRepository $repository
+    ) {
+       $blog = $repository->find($id);
+       $page = new Page();
+
+       $form = $this->createFormBuilder($page)
+           ->add('title', TextType::class)
+           ->add('content', TextareaType::class)
+    }
+
     /**
      * @Route("/register", name="register")
      */
