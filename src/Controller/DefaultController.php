@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Blog;
 use App\Entity\Page;
 use App\Entity\User;
 use App\Repository\BlogRepository;
@@ -33,12 +34,17 @@ class DefaultController extends AbstractController
     /**
      * @Route("/blog/{id}", name="blog_show")
      * @return Response
+     *
+     * recupere le repositoy pour faire de la requette SQL;
+     * symfony, parle le biais de l'id, récupere l'entité concernée (le blog)
+     *
      */
-    public function blog(PageRepository $repository, $id) // recupere le repositoy pour faire de la requette SQL
+    public function blog(Blog $blog,PageRepository $repository, $id)
     {
         $pages = $repository->FindByBlogId($id);
         return $this->render('default/blog.html.twig', [
-            'pages'=>$pages // les clef et la valeur
+            'pages'=>$pages,  // les clef et la valeur
+            'blog_name'=>$blog->getTitle()
         ]);
     }
 
