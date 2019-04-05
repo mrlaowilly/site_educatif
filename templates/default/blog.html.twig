@@ -2,11 +2,12 @@
 
 {% block body %}
     <h1>{{ blog_name }}</h1>
-
+<!-- {{ dump(pages) }} sert a afficher les variable contenu-->
     <table class="table">
         <thead>
         <tr>
             <th>Id</th>
+            <th>Auteur</th>
             <th>Title</th>
             <th>Content</th>
             <th>actions</th>
@@ -16,6 +17,7 @@
         {% for page in pages %}
             <tr>
                 <td>{{ page.id }}</td>
+                <td>{{ page.user.email }}</td> <!--// afficher l'email de l'user-->
                 <td>{{ page.title }}</td>
                 <td>{{ page.content }}</td>
                 <td>
