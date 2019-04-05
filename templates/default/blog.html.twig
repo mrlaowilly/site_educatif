@@ -33,7 +33,7 @@
         </tbody>
     </table>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
-        <a href="{{ path('page_new') }}">Create new</a> <!-- c'est le chemin vers la page-->
+        <a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a> <!-- c'est le chemin vers la page-->
     {% endif %}
     <br>
     <a href="{{ path('home') }}">Home</a>

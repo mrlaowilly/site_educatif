@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {# recuperer la base#}
+
+{% block body %}
+    {{ form_start(form_create) }} {# demarer #}
+    {{ form_widget(form_create) }} {# champs #}
+    <input type="submit" name="submit" value="enregistrer">
+    {{ form_end(form_create) }}
+
+
+{% endblock %}

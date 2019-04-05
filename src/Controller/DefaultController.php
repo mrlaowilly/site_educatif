@@ -10,6 +10,8 @@ use App\Repository\PageRepository;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,7 +46,8 @@ class DefaultController extends AbstractController
         $pages = $repository->FindByBlogId($id);
         return $this->render('default/blog.html.twig', [
             'pages'=>$pages,  // les clef et la valeur
-            'blog_name'=>$blog->getTitle()
+            'blog_name'=>$blog->getTitle(),
+            'blog_id'=> $blog->getId()
         ]);
     }
 
@@ -75,6 +78,26 @@ class DefaultController extends AbstractController
        $form = $this->createFormBuilder($page)
            ->add('title', TextType::class)
            ->add('content', TextareaType::class)
+           ->getForm();
+
+       $form->handleRequest($request); // a chaque methode il y a toujours un retour ...
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $page->setBlog($blog); // setter le blog
+            $page->setUser($this->getUser()); // setter l'utilisateur
+
+            $manager->persist($page); // prepare pour envoyer a la bdd
+            $manager->flush(); // et je l'envoie
+
+            return $this->redirectToRoute('blog_show', [ // ont redirige vers la liste des pages
+                'id' => $id //on redirige dans le blog
+            ]);
+        }
+
+        return $this->render('default/create_page.html.twig', [
+            'form_create'=>$form->createView() // rendu du formulaire
+        ]);
+
     }
 
     /**
