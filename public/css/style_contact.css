@@ -1,0 +1,25 @@
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.titre {
+    margin-top: 5%;
+}
+
+.soustitre {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.nosinfo {
+    padding: 5%;
+
+}
+
+img {
+    width: 100%;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}

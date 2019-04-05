@@ -2,26 +2,38 @@
 
 {% block title %}Page contact{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style_contact.css') }}">
+{% endblock %}
+
 {% block body %}
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12 bg-info">
+            <div class="col-md-12 bg-info titre">
                 <h1>NOUS CONTACTER</h1>
             </div>
-            <div class="col-md-4 bg-danger">
+            <div class="col-md-12 bg-info soustitre">
+                <h3>NOS ADRESSES</h3>
+                <h2>OU VOUS POUVEZ NOUS TROUVEZ</h2>
+            </div>
+            <div class="col-md-4 bg-danger nosinfo">
+                <img src="{{ asset('image/pic1.jpg') }}" alt="photo d'identité"/>
                 <h2>OLIVIER</h2>
                 <p>Adresse : 8, rue de la grande fourche, 75006 Paris
                 Mail : blabla@gmail.com
                 Téléphone : 06 06 06 06 06</p>
             </div>
-            <div class="col-md-4 bg-danger">
+            <div class="col-md-4 bg-danger nosinfo">
+                <img src="{{ asset('image/pic2.jpg') }}" alt="photo d'identité"/>
                 <h2>ANIS</h2>
                 <p>Adresse : 8, rue de la grande fourche, 75006 Paris
                 Mail : blabla@gmail.com
                 Téléphone : 06 06 06 06 06</p>
             </div>
-            <div class="col-md-4 bg-danger">
+            <div class="col-md-4 bg-danger nosinfo">
+                <img src="{{ asset('image/pic3.jpg') }}" alt="photo d'identité"/>
                 <h2>WILLY</h2>
                 <p>Adresse : 8, rue de la grande fourche, 75006 Paris
                 Mail : blabla@gmail.com
