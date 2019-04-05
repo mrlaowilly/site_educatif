@@ -27,6 +27,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('apropos') }}">A PROPOS</a>
                     </li>
+                    {% if is_granted('ROLE_ADMIN') %}   <!-- sa sert a cree  un lien  pour l'admin-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin') }}">ADMINISTRATION</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
