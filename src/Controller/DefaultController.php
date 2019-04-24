@@ -148,6 +148,13 @@ class DefaultController extends AbstractController
         return $this->render('default/apropos.html.twig');
     }
 
+    /**
+     * @Route("/reference", name="reference")
+     */
+    public function reference()
+    {
+        return $this->render('default/reference.html.twig');
+    }
 
 
 }
