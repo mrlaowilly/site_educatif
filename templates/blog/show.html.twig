@@ -7,30 +7,30 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ blog.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ blog.title }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Descriptif</th>
-                <td>{{ blog.descriptif }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ blog.author }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ blog.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ blog.title }}</td>
+        </tr>
+        <tr>
+            <th>CreatedAt</th>
+            <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>UpdatedAt</th>
+            <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Descriptif</th>
+            <td>{{ blog.descriptif }}</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td>{{ blog.author }}</td>
+        </tr>
         </tbody>
     </table>
 

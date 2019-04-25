@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %} {# recuperer la base du template #}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styleBASE.css">
+{% endblock %}
 {% block body %}
+    <div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
     <h1>{{ blog_name }}</h1>
 <!-- {{ dump(pages) }} sert a afficher les variable contenu-->
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Auteur</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>actions</th>
+            <th><h3>Id</h3></th>
+            <th><h3>Auteur</h3></th>
+            <th><h3>Title</h3></th>
+            <th><h3>Content</h3></th>
+            <th><h3>actions</h3></th>
         </tr>
         </thead>
         <tbody>
@@ -21,9 +25,10 @@
                 <td>{{ page.title }}</td>
                 <td>{{ page.content }}</td>
                 <td>
-                    <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
+                    <h3><a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a></h3>  <!-- Permet d'accéder à la page -->
+                    {#{% if is_granted('ROLE_ADMIN')%}#}
+                    {% if is_granted('EDIT', page) %}
+                        <h3><a href="{{ path('page_edit', {'id': page.id}) }}">edit</a></h3>
                     {% endif %}
                 </td>
             </tr>
@@ -35,10 +40,9 @@
         </tbody>
     </table>
     {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
-        <a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a> <!-- c'est le chemin vers la page-->
+        <h3><a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a></h3> <!-- c'est le chemin vers la page-->
     {% endif %}
-    <br>
-    <a href="{{ path('home') }}">Home</a>
+    <h3><a href="{{ path('home') }}">Home</a></h3>
 
-
+</div>
 {% endblock %}

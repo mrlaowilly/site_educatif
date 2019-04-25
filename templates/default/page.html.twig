@@ -3,6 +3,7 @@
 {% block title %}Page{% endblock %}
 
 {% block body %}
+<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
     <h1>Page</h1>
 
     <table class="table">
@@ -24,5 +25,5 @@
 
     <a href="{{ path('blog_show', {'id': page.blog.id}) }}">back to list</a>           <!-- On retourne au blog de la page -->
 
-
+</div>
 {% endblock %}

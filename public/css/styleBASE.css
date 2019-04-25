@@ -1,3 +1,7 @@
 body {
-     background-color: grey;
- }
+    margin:0;
+    padding:0;
+    background: url("/image/journal.jpg") no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}
