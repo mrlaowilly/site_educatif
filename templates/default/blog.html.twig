@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %} {# recuperer la base du template #}
+
 {% block stylesheets %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styleBASE.css">
@@ -27,7 +28,7 @@
                 <td>
                     <h3><a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a></h3>  <!-- Permet d'accéder à la page -->
                     {#{% if is_granted('ROLE_ADMIN')%}#}
-                    {% if is_granted('EDIT', page) %}
+                    {% if is_granted('edit', page) %}
                         <h3><a href="{{ path('page_edit', {'id': page.id}) }}">edit</a></h3>
                     {% endif %}
                 </td>

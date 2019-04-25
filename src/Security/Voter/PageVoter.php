@@ -3,14 +3,13 @@
 namespace App\Security\Voter;
 
 use App\Entity\Page;
-use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class PageVoter extends Voter
 {
-    const DELETE = 'Delete';
+    const DELETE = 'delete';
     const EDIT = 'edit';
 
     protected function supports($attribute, $subject)

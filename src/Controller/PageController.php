@@ -63,7 +63,7 @@ class PageController extends AbstractController
      */
     public function edit(Request $request, Page $page): Response
     {
-        $this->denyAccessUnlessGranted('EDIT', $page);
+        $this->denyAccessUnlessGranted('edit', $page);
 
         $form = $this->createForm(PageType::class, $page);
         $form->handleRequest($request);
@@ -71,7 +71,7 @@ class PageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('page_index', [
+            return $this->redirectToRoute('blog_page_show', [
                 'id' => $page->getId(),
             ]);
         }
@@ -87,7 +87,7 @@ class PageController extends AbstractController
      */
     public function delete(Request $request, Page $page): Response
     {
-        $this->denyAccessUnlessGranted('DELETE', $page);
+        $this->denyAccessUnlessGranted('delete', $page);
 
         if ($this->isCsrfTokenValid('delete'.$page->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
