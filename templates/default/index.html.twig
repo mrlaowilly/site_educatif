@@ -14,20 +14,20 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
     <!--  on appel blog show, ID c'est pour passer un parametre        -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6 bg-custom">
+            <div class="col-md-12">
                 <ul>
                     {% for blog in blogs %}
-                    <li><a href="{{ path('blog_show', {'id': blog.id}) }}">{{ blog.title }}</a></li>
+                    <li><h3><a href="{{ path('blog_show', {'id': blog.id}) }}">{{ blog.title }}</a></h3></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
     </div>
-
+</div>
 {% endblock %}
 
 {% block footer %}
