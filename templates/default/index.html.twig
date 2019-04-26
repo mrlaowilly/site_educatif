@@ -23,7 +23,8 @@
 
                     {% for blog in blogs %}
 
-                    <div><a href="{{ path('blog_show', {'id': blog.id}) }}">TEXTE_LAMBA<img src="{{ asset('image/blog' ~ blog.id ~ '.jpg') }}"></a></div>
+                    <div><a href="{{ path('blog_show', {'id': blog.id}) }}">TEXTE_LAMBA<img style="width: 100%"
+                    src="{{ asset('image/blog' ~ blog.id ~ '.jpg') }}"></a></div>
 
                     {% endfor%}
     </div>
