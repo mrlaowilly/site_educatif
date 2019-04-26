@@ -33,13 +33,13 @@ class PageVoter extends Voter
             case self::EDIT:
                 // logic to determine if the user can EDIT
                 // return true or false
-                return $page->getUser() === $user;
+                return $page->getUser() === $user || in_array('ROLE_ADMIN', $user->getRoles());
 //                return $this->canEdit($page, $user);
                 break;
             case self::DELETE:
                 // logic to determine if the user can VIEW
                 // return true or false
-                return $page->getUser() === $user;
+                return $page->getUser() === $user || in_array('ROLE_ADMIN', $user->getRoles());
                 break;
         }
 
