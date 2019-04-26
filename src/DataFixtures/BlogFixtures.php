@@ -20,23 +20,26 @@ class BlogFixtures extends Fixture
         // $manager->persist($product);
 
         $blog1 = new Blog();
-        $blog1-> setTitle('blog1')
+        $blog1-> setTitle('Divers')
             ->setDescriptif('Le premier article diver')
-            ->setAuthor('Pierre');
+            ->setAuthor('Pierre')
+            ->setImageLink('image/blog2.jpg');
 
         $manager->persist($blog1);
 
         $blog2 = new Blog();
-        $blog2-> setTitle('blog2')
+        $blog2-> setTitle('Super Cars')
             ->setDescriptif('Le deuxieme article diver voiture ponpon')
-            ->setAuthor('Paul');
+            ->setAuthor('Paul')
+            ->setImageLink('image/pic3.jpg');
 
         $manager->persist($blog2);
 
         $blog3 = new Blog();
-        $blog3-> setTitle('blog3')
+        $blog3-> setTitle('ANIMAUX')
             ->setDescriptif('Le premier article diver canard')
-            ->setAuthor('Jacque');
+            ->setAuthor('Jacque')
+            ->setImageLink('image/blog3.jpg');
 
         $manager->persist($blog3);
 

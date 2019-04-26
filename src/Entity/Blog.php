@@ -46,6 +46,11 @@ class Blog
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageLink;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -124,6 +129,18 @@ class Blog
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getImageLink(): ?string
+    {
+        return $this->imageLink;
+    }
+
+    public function setImageLink(?string $imageLink): self
+    {
+        $this->imageLink = $imageLink;
 
         return $this;
     }
