@@ -14,18 +14,37 @@
 {% endblock %}
 
 {% block body %}
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
+<div class="container-fluid col-sm-9" style="background-color: rgba(200, 200, 200, 0.8)">
     <!--  on appel blog show, ID c'est pour passer un parametre        -->
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
+    <div class="jumbotron text-center">
+        <h1>Page d'accueil </h1>
+        <p>Resize this responsive page to see the effect!</p>
+    </div>
 
-                    {% for blog in blogs %}
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div>
+                <a href="{{ path('blog_show', {'id': blog.id}) }}">
+                  <img src="{{ asset(blog.imageLink) }}" />
+                </a>
+                <br />
+                <span>{{ blog.title}}</span>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
 
-                    <div><a href="{{ path('blog_show', {'id': blog.id}) }}">TEXTE_LAMBA<img src="{{ asset('image/blog' ~ blog.id ~ '.jpg') }}"></a></div>
 
-                    {% endfor%}
+
+
+
+
+
+
+
+
+
     </div>
 </div>
 {% endblock %}
