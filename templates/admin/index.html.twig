@@ -3,22 +3,26 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 
-
-
 {% block body %}
-
-<h1>Administration géneral</h1>
-
-<a href="{{ path('blog_index') }}"> Gestion des blogs...</a>
-<br>
-    <h2> Gestion des pages </h2>
-<a href="{{ path ('page_index') }}"> Gestion des pages </a>
-<br>
-    <h3>Gestion des utilisateurs</h3>
-<a href="{{ path ('user_index') }}"> Gestion des user </a>
-
-
-
+<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
+    <div class="row">
+        <div class="col-md-12 bg-primary">
+            <h1>INSCRIPTION</h1>
+        </div>
+        <div class="col-md-12">
+        <h2> Gestion des blogs </h2>
+            <a href="{{ path('blog_index') }}"> Gestion des blogs...</a>
+        </div>
+        <div class="col-md-12">
+        <h2> Gestion des pages </h2>
+            <a href="{{ path ('page_index') }}"> Gestion des pages </a>
+        </div>
+        <div class="col-md-12">
+        <h3>Gestion des utilisateurs</h3>
+            <a href="{{ path ('user_index') }}"> Gestion des user </a>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 
