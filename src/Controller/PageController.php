@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Page;
 use App\Form\PageType;
+use App\Form\SimplePageType;
+use App\Repository\BlogRepository;
 use App\Repository\PageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,7 +67,9 @@ class PageController extends AbstractController
     {
         $this->denyAccessUnlessGranted('edit', $page);
 
-        $form = $this->createForm(PageType::class, $page);
+        $form = $this->createForm(PageType::class, $page, [
+            'user' => $this->getUser() // on envoi user vers le formType
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

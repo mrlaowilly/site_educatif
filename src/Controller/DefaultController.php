@@ -97,7 +97,6 @@ class DefaultController extends AbstractController
         return $this->render('default/create_page.html.twig', [
             'form_create'=>$form->createView() // rendu du formulaire
         ]);
-
     }
 
     /**
@@ -155,6 +154,4 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/reference.html.twig');
     }
-
-
 }
