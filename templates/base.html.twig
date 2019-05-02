@@ -6,6 +6,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link rel="stylesheet" href="/css/styleBASE.css">
+            <link rel="stylesheet" href="/css/style.css">
         {% endblock %}
     </head>
     <body>
@@ -42,9 +43,14 @@
             </div>
         </nav>
 
-            <div class="container">
+            <div class="container float-right">
                 <div class="row">
-                    <div class="col-md-3 bg-warning">
+
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2 bg-warning"
+                         style="z-index: 999999999999999999;">
+
+
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <div style="..."><a href="{{ path('logout_route') }}">Se deconnecter </a>  </div>
                             <strong>{{ app.user.email }}</strong>
