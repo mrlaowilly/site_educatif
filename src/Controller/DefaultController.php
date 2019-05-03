@@ -10,6 +10,7 @@ use App\Repository\PageRepository;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -132,11 +133,46 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact", name="contact", methods={"GET", "POST"})
+     *
+     * @param Request $request
+     * @param \Swift_Mailer $mailer
+     *
+     * @return Response
      */
-    public function contact()
+    public function contact(Request $request, \Swift_Mailer $mailer)
     {
-        return $this->render('default/contact.html.twig');
+        $form = $this->createFormBuilder([])
+            ->add('nom', TextType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'contact.%name%',
+            ])
+            ->add('mail', EmailType::class)
+            ->add('phone', TelType::class)
+            ->add('message', TextareaType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $subject = 'Prise de contact';
+            $destinataire = 'anisidrenmouche@gmail.com';
+            $message = $form['message']->getData();
+
+            $message = (new \Swift_Message($subject))
+                ->setFrom($form['mail']->getData())
+                ->setTo($destinataire)
+                ->setBody($message);
+
+            $mailer->send($message);
+
+            return $this->redirectToRoute('home');
+
+        }
+
+        return $this->render('default/contact.html.twig', [
+            'contact_form' => $form->createView(),
+        ]);
     }
 
     /**
