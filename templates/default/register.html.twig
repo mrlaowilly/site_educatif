@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style_contact.css') }}">
+
+{% endblock %}
+
 {% block body %}
-<div class="container">
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+    </div>
+
     <div class="row">
         <div class="col-md-12 bg-primary">
-
         </div>
-        <div class="col-md-12" style="background-color: rgba(200, 200, 200, 0.8)">
+        <div class="col-md-12" style=>
             {{ form_start(register_form) }}
+            <h3>inscrivez-vous</h3>
             {{ form_widget(register_form) }}
             <input type="submit" name="register" value="S'enregistrer">
             {{ form_end(register_form) }}

@@ -110,8 +110,14 @@ class DefaultController extends AbstractController
         ) {
         $user = new User();
         $form = $this->createFormBuilder($user)
-            ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
+            ->add('email', EmailType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'register.%name%',
+            ])
+            ->add('password', PasswordType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'register.%name%',
+            ])
             ->getForm();
 
         $form->handleRequest($request);

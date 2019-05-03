@@ -15,3 +15,8 @@ contact:
   mail: Votre Email
   phone: Votre numero de telephone
   message: Votre message
+
+register:
+  email: votre email
+  password: Votre mot de passe
+  
