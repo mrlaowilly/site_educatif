@@ -14,11 +14,10 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid col-sm-9">
+<div class="container">
     <!--  on appel blog show, ID c'est pour passer un parametre        -->
     <div class="jumbotron text-center">
-        <h1>Page d'accueil </h1>
-
+        <h1>Page d'accueil</h1>
     </div>
 
     <div class="row">
@@ -26,26 +25,15 @@
         <div class="col-sm-12 col-md-4 col-lg-4">
             <div>
                 <a href="{{ path('blog_show', {'id': blog.id}) }}">
-                  <img src="{{ asset(blog.imageLink) }}" />
+                  <img style="width: 100%; height: 100%;" src="{{ asset(blog.imageLink) }}" />
                 </a>
                 <br />
                 <span>{{ blog.title}}</span>
             </div>
         </div>
-        {% endfor%}
+        {% endfor %}
     </div>
 
-
-
-
-
-
-
-
-
-
-
-    </div>
 </div>
 {% endblock %}
 
