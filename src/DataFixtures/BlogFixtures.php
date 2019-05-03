@@ -71,6 +71,7 @@ class BlogFixtures extends Fixture
         $manager->persist($blog6);
 
 
+
         $manager->flush();
 
         $this->addReference(self::BLOG_BLOG1, $blog1);
