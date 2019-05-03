@@ -147,9 +147,19 @@ class DefaultController extends AbstractController
                 'translation_domain' => 'messages',
                 'label_format' => 'contact.%name%',
             ])
-            ->add('mail', EmailType::class)
-            ->add('phone', TelType::class)
-            ->add('message', TextareaType::class)
+            ->add('mail', EmailType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'contact.%name%',
+            ])
+            ->add('phone', TelType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'contact.%name%',
+            ])
+            ->add('message', TextareaType::class, [
+                'translation_domain'=> 'messages',
+                'label_format' => 'contact.%name%',
+
+            ])
             ->getForm();
 
         $form->handleRequest($request);

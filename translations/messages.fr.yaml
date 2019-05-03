@@ -12,3 +12,6 @@ Create new Blog: Création d'un nouveau blog
 
 contact:
   nom: Votre nom
+  mail: Votre Email
+  phone: Votre numero de telephone
+  message: Votre message
