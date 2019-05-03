@@ -48,7 +48,7 @@ class BlogFixtures extends Fixture
 
         $blog4 = new Blog();
         $blog4-> setTitle('Cuisine')
-            ->setDescriptif('Le premier article cuisine')
+            ->setDescriptif('Le git premier article cuisine')
             ->setAuthor('Pierre')
             ->setImageLink('image/food.jpg');
 
