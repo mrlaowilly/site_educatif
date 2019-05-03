@@ -6,3 +6,10 @@ div.container.float-right {
 .vignette {
     text-align: center;
 }
+
+.jumbotron {
+    margin-top: 2%;
+    background-image: url("/image/bandeau.jpg");
+    background-size: cover;
+    width: 100%;
+}
