@@ -5,7 +5,12 @@ body {
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
 }
-
+.bg-primary{
+    background-color: white !important;
+}
+.bg-warning{
+    background-color: white !important;
+}
 .row.heading h2 {
     color: #fff;
     font-size: 52.52px;
