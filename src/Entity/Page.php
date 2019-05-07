@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PageRepository")
@@ -35,6 +36,12 @@ class Page
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
     private $user;
+
+    /**
+     * @var File
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
 
     public function getId(): ?int
     {
@@ -85,6 +92,26 @@ class Page
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param File $photo
+     *
+     * @return Page
+     */
+    public function setPhoto($photo): Page
+    {
+        $this->photo = $photo;
 
         return $this;
     }

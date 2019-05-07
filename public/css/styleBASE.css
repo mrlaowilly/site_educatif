@@ -133,8 +133,15 @@ a:hover{
 
 .bottom {
     background-color: #403131;
-    margin-top: 126px;
+    margin-top: 300px;
 }
+
+.bottom.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
 .bottom .copyright {
     color: #e5e5e5;
     font-weight: 600;

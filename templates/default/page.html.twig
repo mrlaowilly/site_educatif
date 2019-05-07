@@ -17,6 +17,10 @@
             <td>{{ page.title }}</td>
         </tr>
         <tr>
+            <th>Photo</th>
+            <td><img src="{{ asset('uploads/photos/' ~ page.photo) }}"></td>
+        </tr>
+        <tr>
             <th>Content</th>
             <td>{{ page.content }}</td>
         </tr>
