@@ -4,16 +4,15 @@
 
 {% block body %}
 <div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    <h1>User index</h1>
+    <h1>{{ 'User index' | trans }}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>actions</th>
+                <th>{{ 'Id' | trans }}</th>
+                <th>{{ 'mail' | trans }}</th>
+                <th>{{ 'Roles' | trans }}</th>
+                <th>{{ 'actions' | trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +21,9 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">{{ 'show' | trans }}</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">{{ 'edit' | trans }} </a>
                 </td>
             </tr>
         {% else %}
@@ -36,6 +34,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+    <a href="{{ path('user_new') }}">{{ 'Create new' | trans }}</a>
 </div>
 {% endblock %}

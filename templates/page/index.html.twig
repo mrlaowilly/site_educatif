@@ -9,10 +9,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>actions</th>
+                <th>{{ 'id' | trans }}</th>
+                <th>{{ 'title' | trans }}</th>
+                <th>{{ 'Content' | trans }}</th>
+                <th>{{ 'actions' | trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +22,8 @@
                 <td>{{ page.title }}</td>
                 <td>{{ page.content }}</td>
                 <td>
-                    <a href="{{ path('page_show', {'id': page.id}) }}">show</a>
-                    <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
+                    <a href="{{ path('page_show', {'id': page.id}) }}"> {{ 'show' | trans }}</a>
+                    <a href="{{ path('page_edit', {'id': page.id}) }}"> {{ 'edit' | trans }}</a>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +34,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('page_new') }}">Create new</a>
+    <a href="{{ path('page_new') }}">{{ 'Create new' | trans }}</a>
 </div>
 {% endblock %}

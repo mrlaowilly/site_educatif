@@ -6,6 +6,34 @@ blog:
   user: L'adresse électronique d'admin
 
 
+Id: Identité
+Title: Titre
+CreatedAt: Créé le
+UpdatedAT: Modifié le
+Descriptif: Description
+Author: L'auteur
+Actions: Action
+Create new: Nouvelle Création
+show: Afficher
+edit: Editer
+
+id: Identité
+title: Titre
+Content: Contenu
+actions: Action
+mail: Votre email
+Roles: Rôle
+Password: Mot de passe
+back to list: Retourner a la liste
+User: Utilisateurs
+User index: Index utilisateur
+Create new User: Créer un nouvel utilisateur
+Edit User: Modifier l'utilisateur
+Update: mettre à jour
+Delete: Supprimer
+
+
+
 Blog index: Liste des BLOGs
 
 Create new Blog: Création d'un nouveau blog

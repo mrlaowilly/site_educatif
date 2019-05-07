@@ -9,13 +9,13 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>Descriptif</th>
-                <th>Author</th>
-                <th>actions</th>
+                <th>{{ 'Id' | trans }}</th>
+                <th>{{ 'Title' | trans }}</th>
+                <th>{{ 'CreatedAt' | trans }}</th>
+                <th>{{ 'UpdatedAT' | trans }}</th>
+                <th>{{ 'Descriptif' | trans }}</th>
+                <th>{{ 'Author' | trans }}</th>
+                <th>{{ 'Actions' | trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +29,8 @@
                 <td>{{ blog.descriptif }}</td>
                 <td>{{ blog.author }}</td>
                 <td>
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
-                    <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
+                    <a href="{{ path('blog_show', {'id': blog.id}) }}">{{ 'show' | trans }}</a>
+                    <a href="{{ path('blog_edit', {'id': blog.id}) }}"> {{ 'edit' | trans }}</a>
                 </td>
             </tr>
         {% else %}
@@ -41,6 +41,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('blog_new') }}">Create new</a>
+    <a href="{{ path('blog_new') }}">{{ 'Create new' | trans }}</a>
 </div>
 {% endblock %}
