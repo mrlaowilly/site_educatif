@@ -1,7 +1,7 @@
 body {
     margin:0;
     padding:0;
-    background: url("/image/journal.jpg") no-repeat center fixed;
+    background: url("../image/journal.jpg") no-repeat center fixed;
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
 }
@@ -65,10 +65,10 @@ ul{
 }
 
 
-.our-webcoderskull{
+/*.our-webcoderskull{
     background: url() no-repeat center top / cover;
 
-}
+}*/
 .our-webcoderskull .cnt-block{
     float:left;
     width:100%;
@@ -78,6 +78,7 @@ ul{
     border:2px solid #d5d5d5;
     margin: 0 0 28px;
 }
+
 .our-webcoderskull .cnt-block figure{
     width:148px;
     height:148px;
