@@ -5,44 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    <h1>{{ blog_name }}</h1>
+    <h1 style="padding-bottom: 2%; text-transform: uppercase">{{ blog_name }}</h1>
 <!-- {{ dump(pages) }} sert a afficher les variable contenu-->
-    <table class="table">
-        <thead>
-        <tr>
-            <!-- <th><h3>Id</h3></th> -->
-            <th><h3>Auteur</h3></th>
-            <th><h3>Title</h3></th>
-            <th><h3>Content</h3></th>
-            <th><h3>actions</h3></th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for page in pages %}
-            <tr>
-                <!-- <td>{{ page.id }}</td> -->
-                <td>{{ page.user.email }}</td> <!--// afficher l'email de l'user-->
-                <td>{{ page.title }}</td>
-                <td><p style="text-overflow: ellipsis; word-wrap: break-word; white-space: nowrap; overflow: hidden; width: 100px">{{ page.content }}</p></td>
-                <td>
-                    <h3><a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a></h3>  <!-- Permet d'accéder à la page -->
+    {#<table class="table">#}
+        {#<thead>#}
+        {#<tr>#}
+            {#<!-- <th><h3>Id</h3></th> -->#}
+            {#<th><h3>Auteur</h3></th>#}
+            {#<th><h3>Title</h3></th>#}
+            {#<th><h3>Preview</h3></th>#}
+            {#<th><h3>Content</h3></th>#}
+            {#<th><h3>actions</h3></th>#}
+        {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for page in pages %}#}
+            {#<tr>#}
+                {#<!-- <td>{{ page.id }}</td> -->#}
+                {#<td>{{ page.user.email }}</td> <!--// afficher l'email de l'user-->#}
+                {#<td>{{ page.title }}</td>#}
+                {#<td>{{ page.preview }}</td>#}
+                {#<td><p style="text-overflow: ellipsis; word-wrap: break-word; white-space: nowrap; overflow: hidden; width: 100px">{{ page.content }}</p></td>#}
+                {#<td>#}
+                    {#<h3><a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a></h3>  <!-- Permet d'accéder à la page -->#}
                     {#{% if is_granted('ROLE_ADMIN')%}#}
-                    {% if is_granted('edit', page) %}
-                        <h3><a href="{{ path('page_edit', {'id': page.id}) }}">edit</a></h3>
-                    {% endif %}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
-        <h3><a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a></h3> <!-- c'est le chemin vers la page-->
-    {% endif %}
-    <h3><a href="{{ path('home') }}">Home</a></h3>
+                    {#{% if is_granted('edit', page) %}#}
+                        {#<h3><a href="{{ path('page_edit', {'id': page.id}) }}">edit</a></h3>#}
+                    {#{% endif %}#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="4">no records found</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+    {#{% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->#}
+        {#<h3><a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a></h3> <!-- c'est le chemin vers la page-->#}
+    {#{% endif %}#}
+    {#<h3><a href="{{ path('home') }}">Home</a></h3>#}
+
+
+
+
+
+            {% for page in pages %}
+
+                <div style="background-color: lightgrey; margin-top: 2%;">
+                    <strong style="text-transform: uppercase">{{ page.title }}</strong>
+                    <br>
+                    {{ page.preview }}
+                    <br>
+                        <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
+                        {#{% if is_granted('ROLE_ADMIN')%}#}
+                        {% if is_granted('edit', page) %}
+                            <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
+                        {% endif %}
+                </div>
+                {% else %}
+                    <p>no records found</p>
+                {% endfor %}
+
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
+                <h3><a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a></h3> <!-- c'est le chemin vers la page-->
+            {% endif %}
+            <h3><a href="{{ path('home') }}">Home</a></h3>
+
+
+
+
 
     </div>
 {% endblock %}

@@ -82,6 +82,7 @@ class DefaultController extends AbstractController
            ->add('title', TextType::class)
            ->add('content', TextareaType::class)
            ->add('photo', FileType::class)
+           ->add('preview', TextType::class)
            ->getForm();
 
        $form->handleRequest($request); // a chaque methode il y a toujours un retour ...
