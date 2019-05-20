@@ -35,31 +35,36 @@
                         <a class="nav-link" href="{{ path('register') }}">INSCRIPTION</a>
                     </li>
 
+                    <li class="nav-item">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <div style="..."><a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>  </div>
+                            <strong>{{ app.user.email }}</strong>
+                        {% else %}
+                            {% if app.request.pathinfo != '/login' %}
+                                <div style="..."><a class="nav-link" href="{{ path('app_login') }}">{{ 'Se connecter' | upper }} </a>  </div>
+                            {% endif %}
+                        {% endif %}
+                    </li>
                     {% if is_granted('ROLE_ADMIN') %}   <!-- sa sert a cree  un lien  pour l'admin-->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('admin') }}">ADMINISTRATION</a>
                     </li>
                     {% endif %}
+
                 </ul>
+
             </div>
         </nav>
 
-            <div class="container float-right">
+            {#<div class="container float-right">
                 <div class="row">
 
                     <div class="col-md-10"></div>
                     <div class="col-md-2 bg-warning" style="z-index: 999999999999999999;margin-top: -56px;/* border-radius: 30px; */padding: 4px;left: -79px;text-align: center;">
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <div style="..."><a href="{{ path('logout_route') }}">Se deconnecter </a>  </div>
-                            <strong>{{ app.user.email }}</strong>
-                        {% else %}
-                            {% if app.request.pathinfo != '/login' %}
-                                <div style="..."><a href="{{ path('app_login') }}">Se connecter </a>  </div>
-                            {% endif %}
-                        {% endif %}
+
                     </div>
                 </div>
-            </div>
+            </div>#}
 
 
 
