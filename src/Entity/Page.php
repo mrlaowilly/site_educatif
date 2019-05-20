@@ -43,6 +43,11 @@ class Page
      */
     private $photo;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $preview;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -112,6 +117,18 @@ class Page
     public function setPhoto($photo): Page
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getPreview(): ?string
+    {
+        return $this->preview;
+    }
+
+    public function setPreview(string $preview): self
+    {
+        $this->preview = $preview;
 
         return $this;
     }

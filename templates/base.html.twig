@@ -35,6 +35,11 @@
                         <a class="nav-link" href="{{ path('register') }}">INSCRIPTION</a>
                     </li>
 
+                    {% if is_granted('ROLE_ADMIN') %}   <!-- sa sert a cree  un lien  pour l'admin-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin') }}">ADMINISTRATION</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item">
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <div style="..."><a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>  </div>
@@ -45,11 +50,6 @@
                             {% endif %}
                         {% endif %}
                     </li>
-                    {% if is_granted('ROLE_ADMIN') %}   <!-- sa sert a cree  un lien  pour l'admin-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('admin') }}">ADMINISTRATION</a>
-                    </li>
-                    {% endif %}
 
                 </ul>
 

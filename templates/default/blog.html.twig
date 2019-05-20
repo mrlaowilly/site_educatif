@@ -23,7 +23,7 @@
                 <!-- <td>{{ page.id }}</td> -->
                 <td>{{ page.user.email }}</td> <!--// afficher l'email de l'user-->
                 <td>{{ page.title }}</td>
-                <td><p style="text-overflow: ellipsis; word-wrap: break-word; white-space: nowrap; overflow: hidden; width: 250px">{{ page.content }}</p></td>
+                <td><p style="text-overflow: ellipsis; word-wrap: break-word; white-space: nowrap; overflow: hidden; width: 100px">{{ page.content }}</p></td>
                 <td>
                     <h3><a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a></h3>  <!-- Permet d'accéder à la page -->
                     {#{% if is_granted('ROLE_ADMIN')%}#}

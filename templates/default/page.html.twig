@@ -7,30 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    <h1>Page</h1>
+    {#<h1>Page</h1>#}
 
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ page.id }}</td>
-        </tr>
-        <tr>
-            <th>Title</th>
-            <td>{{ page.title }}</td>
-        </tr>
-        <tr>
-            <th>Photo</th>
-            <td><img src="{{ asset('uploads/photos/' ~ page.photo) }}"></td>
-        </tr>
-        <tr>
-            <th>Content</th>
-            <td>{{ page.content }}</td>
-        </tr>
-        </tbody>
-    </table>
+    {#<table class="table">#}
+        {#<tbody>#}
+        {#<tr>#}
+            {#<th>Id</th>#}
+            {#<td>{{ page.id }}</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<th>Title</th>#}
+            {#<td>{{ page.title }}</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<th>Photo</th>#}
+            {#<td><img src="{{ asset('uploads/photos/' ~ page.photo) }}"></td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<th>Content</th>#}
+            {#<td>{{ page.content }}</td>#}
+        {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
 
-    <h3><a href="{{ path('blog_show', {'id': page.blog.id}) }}">back to list</a></h3>           <!-- On retourne au blog de la page -->
+
+    <h1 style="text-transform: uppercase; text-align: center; padding-top: 2%; padding-bottom: 2%;">{{ page.title }}</h1>
+    <img style="width: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
+    <br><br>
+    <p style="text-align: justify">{{ page.content }}</p>
+    <br><br>
+    <h3 style="text-align: center; padding-bottom: 2%;"><a href="{{ path('blog_show', {'id': page.blog.id}) }}">back to list</a></h3>           <!-- On retourne au blog de la page -->
+
+
 
 </div>
 {% endblock %}

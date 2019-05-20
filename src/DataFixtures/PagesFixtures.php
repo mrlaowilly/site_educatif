@@ -19,56 +19,64 @@ class PagesFixtures extends Fixture implements DependentFixtureInterface
         $pages1->setTitle( 'Les poissons')
             ->setContent('Du texte sur les écailles')
             ->setUser($this->getReference(UserFixtures::USER_USER1))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG1));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG1))
+            ->setPreview('Le résumé du message1');
         $manager->persist($pages1);
 
         $pages2 = new Page();
         $pages2->setTitle( 'Les serpents')
             ->setContent('Du texte à propos des serpents')
             ->setUser($this->getReference(UserFixtures::USER_USER2))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2))
+            ->setPreview('Le résumé du message2');
         $manager->persist($pages2);
 
         $pages3 = new Page();
         $pages3->setTitle( 'Les ddd')
             ->setContent('Du texte à propos des serpents')
             ->setUser($this->getReference(UserFixtures::USER_USER2))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2))
+            ->setPreview('Le résumé du message3');
         $manager->persist($pages3);
 
         $pages4 = new Page();
         $pages4->setTitle( 'Les ggg')
             ->setContent('Du texte à propos des serpents')
             ->setUser($this->getReference(UserFixtures::USER_USER2))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2))
+            ->setPreview('Le résumé du message4');
         $manager->persist($pages4);
 
         $pages5 = new Page();
         $pages5->setTitle( 'Les hhh')
             ->setContent('Du texte à propos des serpents')
             ->setUser($this->getReference(UserFixtures::USER_USER2))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG2))
+            ->setPreview('Le résumé du message5');
         $manager->persist($pages5);
 
         $pages6 = new Page();
         $pages6->setTitle( 'les dinosaures')
             ->setContent('Du texte à propos des lezards')
             ->setUser($this->getReference(UserFixtures::USER_USER3))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG3));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG3))
+            ->setPreview('Le résumé du message6');
         $manager->persist($pages6);
 
         $pages7 = new Page();
         $pages7->setTitle( 'crepe')
             ->setContent('Du texte à propos des crepess')
             ->setUser($this->getReference(UserFixtures::USER_USER3))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG4));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG4))
+            ->setPreview('Le résumé du message7');
         $manager->persist($pages7);
 
         $pages8 = new Page();
         $pages8->setTitle( 'crepe')
             ->setContent('Du texte à propos des crepess')
             ->setUser($this->getReference(UserFixtures::USER_USER3))
-            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG4));
+            ->setBlog($this->getReference(BlogFixtures::BLOG_BLOG4))
+            ->setPreview('Le résumé du message8');
         $manager->persist($pages8);
 
 
