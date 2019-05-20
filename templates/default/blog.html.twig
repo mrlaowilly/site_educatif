@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %} {# recuperer la base du template #}
 
 {% block body %}
+
     <div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
     <h1>{{ blog_name }}</h1>
 <!-- {{ dump(pages) }} sert a afficher les variable contenu-->
     <table class="table">
         <thead>
         <tr>
-            <th><h3>Id</h3></th>
+            <!-- <th><h3>Id</h3></th> -->
             <th><h3>Auteur</h3></th>
             <th><h3>Title</h3></th>
             <th><h3>Content</h3></th>
@@ -17,10 +18,10 @@
         <tbody>
         {% for page in pages %}
             <tr>
-                <td>{{ page.id }}</td>
+                <!-- <td>{{ page.id }}</td> -->
                 <td>{{ page.user.email }}</td> <!--// afficher l'email de l'user-->
                 <td>{{ page.title }}</td>
-                <td>{{ page.content }}</td>
+                <td><p style="text-overflow: ellipsis; word-wrap: break-word; white-space: nowrap; overflow: hidden; width: 250px">{{ page.content }}</p></td>
                 <td>
                     <h3><a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a></h3>  <!-- Permet d'accéder à la page -->
                     {#{% if is_granted('ROLE_ADMIN')%}#}
@@ -41,5 +42,5 @@
     {% endif %}
     <h3><a href="{{ path('home') }}">Home</a></h3>
 
-</div>
+    </div>
 {% endblock %}
