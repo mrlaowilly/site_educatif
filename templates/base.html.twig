@@ -34,6 +34,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('register') }}">INSCRIPTION</a>
                     </li>
+
+
                     {% if is_granted('ROLE_ADMIN') %}   <!-- sa sert a cree  un lien  pour l'admin-->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('admin') }}">ADMINISTRATION</a>
@@ -47,17 +49,9 @@
                 <div class="row">
 
                     <div class="col-md-10"></div>
-                    <div class="col-md-2 bg-warning" style="z-index: 999999999999999999;margin-top: 4px;border-radius: 30px;padding: 12px;left: -7px;text-align: center;">
+                    <div class="col-md-2 bg-warning" style="z-index: 999999999999999999;margin-top: -56px;/* border-radius: 30px; */padding: 12px;left: -79px;text-align: center;">
 
 
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <div style="..."><a href="{{ path('logout_route') }}">Se deconnecter </a>  </div>
-                            <strong>{{ app.user.email }}</strong>
-                        {% else %}
-                            {% if app.request.pathinfo != '/login' %}
-                                <div style="..."><a href="{{ path('app_login') }}">Se connecter </a>  </div>
-                            {% endif %}
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -73,19 +67,7 @@
 
         {% block body %}{% endblock %}
 
-        <!--Bottom Footer-->
-        <div class="bottom section-padding footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="copyright">
-                            <p>© <span>2019</span> <a href="{{ path('contact') }}" class="transition">Olivier ,Willy ,Taoufik ,Anis </a> All rights reserved © 2019.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Bottom Footer-->
+
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
