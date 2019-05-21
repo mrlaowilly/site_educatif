@@ -4,7 +4,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
+    <div class="container" style="">
     <h1 style="padding-bottom: 2%; text-transform: uppercase">{{ blog_name }}</h1>
 <!-- {{ dump(pages) }} sert a afficher les variable contenu-->
     {#<table class="table">#}
@@ -52,11 +52,17 @@
 
             {% for page in pages %}
 
+
+
+
                 <div style="background-color: lightgrey; margin-top: 2%;">
                     <strong style="text-transform: uppercase">{{ page.title }}</strong>
                     <br>
                     {{ page.preview }}
                     <br>
+
+
+
                         <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
                         {#{% if is_granted('ROLE_ADMIN')%}#}
                         {% if is_granted('edit', page) %}

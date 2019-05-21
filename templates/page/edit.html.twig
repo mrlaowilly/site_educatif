@@ -1,17 +1,36 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style_contact.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
+
+
+
 {% block title %}Edit Page{% endblock %}
 
 {% block body %}
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+        </div>
 
-    <h1>Edit Page</h1>
-
+        <div class="row">
+            <div class="col-md-12 bg-primary">
+            </div>
+            <div class="col-md-12" style=>
+    <div class="form">
     {{ include('page/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('blog_show', {'id': page.blog.id}) }}">back to list</a>
 
     {{ include('page/_delete_form.html.twig') }}
-
+    </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
+
