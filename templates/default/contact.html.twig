@@ -14,10 +14,12 @@
         <div class="contact-image">
             <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
         </div>
+        <div class="form">
         {{ form_start(contact_form) }}
         <h3>Laissez-nous un message</h3>
         {{ form_widget(contact_form) }}
         <input type="submit" name="btnSubmit" class="btnContact" value="Envoyer" />
         {{ form_end(contact_form) }}
+        </div>
     </div>
 {% endblock %}
