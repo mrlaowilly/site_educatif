@@ -4,8 +4,20 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="container" style="">
-    <h1 style="padding-bottom: 2%; text-transform: uppercase">{{ blog_name }}</h1>
+    <div class="container">
+
+    {#<br>#}
+    {#<div class="row">#}
+        {#<div class="col-12" style=" background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5));">#}
+            {#<h1 style="padding-bottom: 2%; text-transform: uppercase; padding-top: 2%; color: white;"><strong>{{ blog_name }}</strong></h1>#}
+        {#</div>#}
+    {#</div>#}
+    {#<br>#}
+    <div class="row">
+        <img src="/image/bandeauS.jpg"/>
+        <h1 style="text-transform: uppercase; font-size: 5vw; color: white;"><strong>{{ blog_name }}</strong></h1>
+    </div>
+
 <!-- {{ dump(pages) }} sert a afficher les variable contenu-->
     {#<table class="table">#}
         {#<thead>#}
@@ -47,41 +59,32 @@
     {#<h3><a href="{{ path('home') }}">Home</a></h3>#}
 
 
-
-
-
             {% for page in pages %}
-
-
-
-
-                <div style="background-color: lightgrey; margin-top: 2%;">
-                    <strong style="text-transform: uppercase">{{ page.title }}</strong>
-                    <br>
+            <div class="row">
+                <div class="col-12" style="background-color: white;">
+                    <strong style="text-transform: uppercase; font-size: 1em;">{{ page.title }}</strong>
+                </div>
+                <div class="col-12" style="background-color: rgba(255, 255, 255, 0.5); margin-bottom: 1%;">
                     {{ page.preview }}
                     <br>
-
-
-
-                        <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
-                        {#{% if is_granted('ROLE_ADMIN')%}#}
-                        {% if is_granted('edit', page) %}
-                            <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
-                        {% endif %}
+                    <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
+                    {#{% if is_granted('ROLE_ADMIN')%}#}
+                    {% if is_granted('edit', page) %}
+                    <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
+                    {% endif %}
                 </div>
-                {% else %}
-                    <p>no records found</p>
-                {% endfor %}
-
-
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
-                <h3><a href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a></h3> <!-- c'est le chemin vers la page-->
-            {% endif %}
-            <h3><a href="{{ path('home') }}">Home</a></h3>
-
-
-
-
-
+                <div class="col-12">
+                    {% else %}
+                        <p>no records found</p>
+                    {% endfor %}
+                </div>
+                <div class="col-12" style="text-align: center; padding-top: 3%;">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
+                    <a style="background: white; padding: 5px;" href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a> <!-- c'est le chemin vers la page-->
+                    <span><strong>/</strong></span>
+                    {% endif %}
+                    <a style="background: white; padding: 5px;" href="{{ path('home') }}">Home</a>
+                </div>
+            </div>
     </div>
 {% endblock %}
