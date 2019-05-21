@@ -14,21 +14,21 @@
 {% endblock %}
 
 {% block body %}
-<div class="container bg-white" style="padding-top: 0.5%">
+<div class="container bg-white" style="padding-bottom: 30px;">
     <!--  on appel blog show, ID c'est pour passer un parametre        -->
-    <div class="jumbotron">
-        <h1 style="visibility: hidden">Page d'accueil</h1>
+    <div class="row">
+        <img src="/image/bandeau.jpg"/>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h2 style="color: black; text-align: center; margin-bottom: 2%;"><strong>LesTutos.com !</strong> Découvrir et partager nos passions !</h2>
+            <h2 style="color: black; text-align: center; margin-bottom: 1%; padding-top: 2%"><strong>LesTutos.com !</strong> Découvrir et partager nos passions !</h2>
         </div>
         {% for blog in blogs %}
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="vignette">
                 <a href="{{ path('blog_show', {'id': blog.id}) }}">
                     <span style="text-transform: uppercase; color: black; background-color: white; position: relative;
-                    top: 22px; padding-left: 10%; padding-right: 10%;"><strong>{{ blog.title}}</strong></span>
+                    top: 22px; padding-left: 10%; padding-right: 10%; font-size: 3vh;"><strong>{{ blog.title}}</strong></span>
                     <br />
                     <img style="width: 100%; height: 100%;" src="{{ asset(blog.imageLink) }}" />
                 </a>
