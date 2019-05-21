@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('home') }}">ACCEUIL</a>
+                        <a class="nav-link" href="{{ path('home') }}">ACCUEUIL</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('contact') }}">CONTACT</a>
@@ -42,7 +42,10 @@
                     {% endif %}
                     <li class="nav-item">
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <div style="..."><a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>  </div>
+                            <div style="...">
+                            <a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>
+                          <a class="nav-link" href="{{ path('account') }}">{{ 'Mon Compte' | upper }} </a> <!-- ajout de la rubrique Mon Compte quand on se connecte -->
+                         </div>
                             <strong>{{ app.user.email }}</strong>
                         {% else %}
                             {% if app.request.pathinfo != '/login' %}

@@ -5,8 +5,11 @@ namespace App\Controller;
 use App\Entity\Blog;
 use App\Entity\Page;
 use App\Entity\User;
+use App\Entity\Person;
 use App\Repository\BlogRepository;
 use App\Repository\PageRepository;
+use App\Repository\PersonRepository;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -217,6 +220,79 @@ class DefaultController extends AbstractController
             'contact_form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/account", name="account", methods={"GET", "POST"})
+     */
+    public function editAccount(
+      Request $request,
+      EntityManagerInterface $manager,
+      PersonRepository $repository
+      )
+      {
+        if (is_null($this->getUser())) {
+          throw new \Exception("Vous devez vous connecter", 1);
+        }
+        $person = $repository->findOneBy(['user' => $this->getUser()]);
+
+        if ($person->getImage()) {
+            $person->setImage(
+                new File($this->getParameter('photo') . '/' . $person->getImage())
+            );
+        }
+
+        $form = $this->createFormBuilder($person)
+            ->add('FirstName', TextType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'account.%name%',
+                'required' => false,
+            ])
+            ->add('LastName', TextType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'account.%name%',
+                'required' => false,
+            ])
+            ->add('image', FileType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'account.%name%',
+                'required' => false,
+            ])
+            ->add('description', TextAreaType::class, [
+                'translation_domain' => 'messages',
+                'label_format' => 'account.%name%',
+                'required' => false,
+            ])
+            ->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+              if($form['image']->getData()){
+                $file = $form['image']->getData();
+                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+                $person->setImage($fileName);
+
+                try {
+                    $file->move(
+                        $this->getParameter('photo'),
+                        $fileName
+                    );
+                } catch (FileException $exception) {
+                    echo $exception->getCode() . ': ' . $exception->getMessage();
+                }
+              }
+
+                $manager->persist($person); // prepare pour envoyer a la bdd
+                $manager->flush();
+
+                return $this->redirectToRoute('home');
+
+            }
+
+            return $this->render('default/account.html.twig', [
+                'account_form' => $form->createView(),
+            ]);
+      }
 
     /**
      * @Route("/apropos", name="apropos")
