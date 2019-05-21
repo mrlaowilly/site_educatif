@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,8 +20,15 @@ class UserType extends AbstractType
             ->add('roles', CollectionType::class, [
                 'allow_add' => true
             ])
-            ->add('password', PasswordType::class)
-        ;
+            //ajout d'un password à verifier
+          ->add('password', RepeatedType::class, [
+      'type' => PasswordType::class,
+      'invalid_message' => 'Le mot de passe doit être le même.',
+      'options' => ['attr' => ['class' => 'password-field']],
+      'required' => true,
+      'first_options'  => ['label' => 'Password'],
+      'second_options' => ['label' => 'Repeat Password'],
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -30,4 +38,3 @@ class UserType extends AbstractType
         ]);
     }
 }
-

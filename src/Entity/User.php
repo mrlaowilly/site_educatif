@@ -33,6 +33,7 @@ class User implements UserInterface
      */
     private $password;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +94,7 @@ class User implements UserInterface
 
         return $this;
     }
+
 
     /**
      * @see UserInterface

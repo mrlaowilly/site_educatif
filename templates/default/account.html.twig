@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{form_start(account_form)}}
+{{form_widget(account_form)}}
+  <input type="submit" name="submit" value="Enregistrer">
+{{form_end(account_form)}}
+
+<a href="#" onclick="history.back();">Retour</a> {# boutton retour #}
+
+{% endblock %}
