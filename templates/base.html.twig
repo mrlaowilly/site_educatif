@@ -7,11 +7,14 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link rel="stylesheet" href="{{ asset('css/style_base.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% endblock %}
     </head>
     <body>
         {% block header %}
-            <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="box-shadow: 2px 2px 10px darkslategrey;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="box-shadow: 2px 2px 10px darkslategrey;font-size: small;">
+
+
             <a class="navbar-brand" href="{{ path('home') }}"><img style="width: 50%;" src="{{ asset('image/logo.png') }}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,19 +49,23 @@
                             <a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>
 
                          </div>
-                            <strong>{{ app.user.email }}</strong>
+
                         {% else %}
                             {% if app.request.pathinfo != '/login' %}
                                 <div style="..."><a class="nav-link" href="{{ path('app_login') }}">{{ 'Se connecter' | upper }} </a>  </div>
                             {% endif %}
                         {% endif %}
                     </li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <li class="nav_item">
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a class="nav-link" href="{{ path('account') }}">{{ 'Mon Compte' | upper }} </a> <!-- ajout de la rubrique Mon Compte quand on se connecte -->
-                        {% endif %}
-                    </li>
 
+                            <a class="nav-link" href="{{ path('account') }}"><strong>{{ app.user.email }}</strong></a> <!-- ajout de la rubrique Mon Compte quand on se connecte -->
+
+                    </li>
+                    <li>
+
+                    </li>
+                    {% endif %}
 
 
                 </ul>

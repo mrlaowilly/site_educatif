@@ -1,6 +1,17 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('css/style_contact.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% endblock %}
 
 {% block body %}
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+  </div>
+  <div class="form">
 {{form_start(account_form)}}
 {{form_widget(account_form)}}
   <input type="submit" name="submit" value="Enregistrer">
