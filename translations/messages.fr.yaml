@@ -24,7 +24,7 @@ actions: Action
 mail: Votre email
 Roles: Rôle
 Password: Mot de passe
-back to list: Retourner a la liste
+back to list: Retour à liste
 User: Utilisateurs
 User index: Index utilisateur
 Create new User: Créer un nouvel utilisateur
@@ -35,17 +35,38 @@ Home: Accueil
 
 
 
+page.title: Titre
+page.user: Utilisateur
+page.photo: Photo
+page.preview: Aperçu
+page.blog: Blog
+page.content: Contenu
+
+
+
+
+
+
 Blog index: Liste des BLOGs
 
 Create new Blog: Création d'un nouveau blog
 
 contact:
-  nom: Votre nom
-  mail: Votre Email
-  phone: Votre numero de telephone
+  nom:  Nom
+  mail: Email
+  phone: Numero de telephone
   message: Votre message
 
 register:
-  email: votre email
-  password: Votre mot de passe
-  repeat_password: Veuillez répétez votre mot de passe.
+  email: Email
+  password: Mot de passe
+  repeat_password:  Confirmer votre mot de passe
+
+
+app_login:
+
+  sign_in: Connectez-vous
+  email: Email
+  password: Mot de passe
+  connect: Connexion
+

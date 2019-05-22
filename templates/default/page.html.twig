@@ -32,10 +32,10 @@
         <div class="row">
             <div class="col-12" style="background-color: white;">
                 <img style="width: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
-                <h1 style="text-transform: uppercase; background-color: white; text-align: center; padding-top: 3%;"><strong>{{ page.title }}</strong></h1>
-                <p style="text-transform: uppercase; text-align: center; padding-top: 2%;"><strong>{{ page.preview }}</strong></p>
-                <p style="text-align: justify; background-color: white; padding-left: 30px; padding-right: 30px; padding-bottom: 30px;">{{ page.content }}</p>
-                <p style="text-transform: uppercase; text-align: center;">Auteur : <strong>{{ page.user.email }}</strong></p>
+                <h1 style="text-transform: uppercase; background-color: white; text-align: center; padding-top: 3%;"><strong>{{ 'page.title' | trans }}</strong></h1>
+                <p style="text-transform: uppercase; text-align: center; padding-top: 2%;"><strong>{{ 'page.preview' | trans }}</strong></p>
+                <p style="text-align: justify; background-color: white; padding-left: 30px; padding-right: 30px; padding-bottom: 30px;">{{ 'page.content' | trans }}</p>
+                <p style="text-transform: uppercase; text-align: center;">Auteur : <strong>{{ 'page.user' | trans }}</strong></p>
             </div>
         </div>
         <div class="row">

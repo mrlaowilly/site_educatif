@@ -25,12 +25,12 @@
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
 
-                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                <label for="inputEmail">Email</label>
+                <h1 class="h3 mb-3 font-weight-normal">{{ 'app_login.sign_in' | trans }}</h1>
+                <label for="inputEmail">{{ 'app_login.email' | trans }}</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
                 <br>
-                <label for="inputPassword">password</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="" style="margin-top: 2px;">
+                <label for="inputPassword">{{ 'app_login.password' | trans }}</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required="" style="margin-top: 2px;">
 
                 <input type="hidden" name="_csrf_token"
                        value="{{ csrf_token('authenticate') }}"
@@ -51,7 +51,7 @@
                 padding: 7px;
                 margin-top: 9px;
             ">
-                    Sign in
+                    {{ 'app_login.connect' | trans }}
                 </button>
             </form>
         </div>
