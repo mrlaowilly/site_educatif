@@ -41,21 +41,27 @@
                                 <a class="nav-link" href="{{ path('admin') }}">ADMINISTRATION</a>
                             </li>
                             {% endif %}
+
+                        <li class="nav-item">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <div style="...">
+                                <a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>
+                             </div>
+                            {% else %}
+                                {% if app.request.pathinfo != '/login' %}
+                                    <div style="..."><a class="nav-link" href="{{ path('app_login') }}">{{ 'Se connecter' | upper }}</a></div>
+                                {% endif %}
+                            {% endif %}
+                        </li>
+
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="nav_item">
+                          <a>{{ render(controller('App\\Controller\\DefaultController::getProfile')) }}</a>
+                            <a class="nav-link" href="{{ path('account') }}"><strong>{{ app.user.email }}</strong></a>
+                            <!-- ajout de la rubrique Mon Compte quand on se connecte -->
+                        </li>
                         {% endif %}
-                    </li>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <li class="nav_item">
-                            <a>{{ render(controller('App\\Controller\\DefaultController::getProfile')) }}</a>
-                            <a class="nav-link" href="{{ path('account') }}"><strong>{{ app.user.email }}</strong></a> <!-- ajout de la rubrique Mon Compte quand on se connecte -->
-
-                    </li>
-                    <li>
-
-                    </li>
-                    {% endif %}
-
-
-                </ul>
+                    </ul>
 
             </div>
         </nav>
@@ -66,8 +72,9 @@
                     <div class="col-md-10"></div>
                     <div class="col-md-2 bg-warning" style="z-index: 999999999999999999;margin-top: -56px;/* border-radius: 30px; */padding: 4px;left: -79px;text-align: center;">
 
+
                     </div>
-                </nav>
+                </nav>#}
 
 
         {% endblock %}
@@ -81,6 +88,3 @@
         {% endblock %}
     </body>
 </html>
-
-
-{##}
