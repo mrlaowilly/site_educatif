@@ -29,13 +29,22 @@
             {#</tr>#}
             {#</tbody>#}
         {#</table>#}
-        <div class="row">
-            <div class="col-12" style="background-color: white;">
-                <img style="width: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
-                <h1 style="text-transform: uppercase; background-color: white; text-align: center; padding-top: 3%;"><strong>{{ page.title }}</strong></h1>
-                <p style="text-transform: uppercase; text-align: center; padding-top: 2%;"><strong>{{ page.preview }}</strong></p>
-                <p style="text-align: justify; background-color: white; padding-left: 30px; padding-right: 30px; padding-bottom: 30px;">{{ page.content }}</p>
-                <p style="text-transform: uppercase; text-align: center;">Auteur : <strong>{{ page.user.email }}</strong></p>
+        <div class="row" style="background-color: white;">
+
+            <img style="width: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
+            <div class="col-8" style="background-color: white;">
+                <h1 style="text-transform: uppercase; background-color: white; text-align: right; padding-top: 3%; padding-bottom: 3%;"><strong>{{ page.title }}</strong></h1>
+                <p style="text-align: right; padding-top: 2%;">
+                    <span style="text-transform: uppercase;"><strong>{{ page.preview }}</strong>
+                    </span><br><span style="background-color: orangered; color: white;"> Par : {{ page.user.email }}</span></p>
+                <p style="text-align: right; background-color: white; padding-left: 30px; padding-bottom: 30px;">{{ page.content }}</p>
+            </div>
+            <div class="col-4" style="background-color: #218BC3; padding: 5%;">
+                <h2 style="text-transform: uppercase; color: white; margin-bottom: 20%;"><strong>Les astuces !</strong></h2>
+                <p>Pourquoi l'utiliser?
+                    On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de
+                    distractiocas comparable avec celle du français standard. De
+                    nombreuses suites logicielles.</p>
             </div>
         </div>
         <div class="row">
