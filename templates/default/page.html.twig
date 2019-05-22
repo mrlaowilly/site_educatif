@@ -1,44 +1,46 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Page{% endblock %}
-
 {% block body %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    {#<h1>Page</h1>#}
+    <div class="container">
+        {#<h1>Page</h1>#}
 
-    {#<table class="table">#}
-        {#<tbody>#}
-        {#<tr>#}
-            {#<th>Id</th>#}
-            {#<td>{{ page.id }}</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<th>Title</th>#}
-            {#<td>{{ page.title }}</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<th>Photo</th>#}
-            {#<td><img src="{{ asset('uploads/photos/' ~ page.photo) }}"></td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<th>Content</th>#}
-            {#<td>{{ page.content }}</td>#}
-        {#</tr>#}
-        {#</tbody>#}
-    {#</table>#}
+        {#<table class="table">#}
+            {#<tbody>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ page.id }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Title</th>#}
+                {#<td>{{ page.title }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Photo</th>#}
+                {#<td><img src="{{ asset('uploads/photos/' ~ page.photo) }}"></td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Content</th>#}
+                {#<td>{{ page.content }}</td>#}
+            {#</tr>#}
+            {#</tbody>#}
+        {#</table>#}
+        <div class="row">
+            <div class="col-12" style="background-color: white;">
+                <img style="width: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
+                <div style="background-color: white;">
+                    <h1 style="text-transform: uppercase; text-align: center; padding-top: 2%; padding-bottom: 2%;"><strong>{{ page.title }}</strong></h1>
+                    <p style="text-align: justify; background-color: white; margin-left: 10%; margin-right: 10%; padding-bottom: 5%;">{{ page.content }}</p>
+                </div>
+            </div>
+            <div class="col-12" style="text-align: center;">
+                <br>
+                <a style="background: white; text-transform: uppercase; padding: 10px;" href="{{ path('blog_show', {'id': page.blog.id}) }}"><strong>Back to list</strong></a>
+            </div>
+        </div>
 
 
-    <img style="width: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
-    <div style="background-color: white;">
-        <h1 style="text-transform: uppercase; text-align: center; padding-top: 2%; padding-bottom: 2%;"><strong>{{ page.title }}</strong></h1>
-        <p style="text-align: justify; background-color: white; margin-left: 10%; margin-right: 10%; padding-bottom: 10%;">{{ page.content }}</p>
     </div>
-        <h3 style="text-align: center; padding-bottom: 2%;"><a href="{{ path('blog_show', {'id': page.blog.id}) }}">back to list</a></h3>           <!-- On retourne au blog de la page -->
-
-
-
-</div>
 {% endblock %}

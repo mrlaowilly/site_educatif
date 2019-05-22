@@ -70,6 +70,7 @@
                     <a href="{{ path('blog_page_show', {'id': page.id}) }}">show</a>  <!-- Permet d'accéder à la page -->
                     {#{% if is_granted('ROLE_ADMIN')%}#}
                     {% if is_granted('edit', page) %}
+                    <span>/</span>
                     <a href="{{ path('page_edit', {'id': page.id}) }}">edit</a>
                     {% endif %}
                 </div>
