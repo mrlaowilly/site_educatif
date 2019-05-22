@@ -13,11 +13,13 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,7 +30,7 @@ class DefaultController extends AbstractController
 {
     /**
      * @return Response
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index(BlogRepository $repository)
     {
@@ -141,10 +143,23 @@ class DefaultController extends AbstractController
         $user = new User();
         $form = $this->createFormBuilder($user)
             ->add('email', EmailType::class, [
-                'translation_domain' => 'messages',
-                'label_format' => 'register.%name%',
+              'constraints' => [
+                new Assert\Email([
+                'message' => 'Votre email "{{ value }}" est invalide.',
+                'checkMX' => true,
+
+              ])
+            ],
+            'translation_domain' => 'messages',
+            'label_format' => 'register.%name%',
             ])
-            ->add('password', PasswordType::class, [
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'invalid_message' => 'Le mot de passe doit être le même.',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat Password'],
                 'translation_domain' => 'messages',
                 'label_format' => 'register.%name%',
             ])
