@@ -309,6 +309,16 @@ class DefaultController extends AbstractController
             ]);
       }
 
+      public function  getProfile(PersonRepository $repository)
+      {
+          $person = $repository->findOneBy(['user'=>$this->getUser()]);
+          return $this->render(
+            'default/person.html.twig',
+            ['person' => $person]
+        );
+
+      }
+
     /**
      * @Route("/apropos", name="apropos")
      */

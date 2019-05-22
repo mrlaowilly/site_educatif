@@ -21,7 +21,7 @@ security:
                     - App\Security\SiteAuthenticator
             logout:
                 path: /logout
-                target: /home
+                target: /
 
     role_hierarchy:
         ROLE_ADMIN:     ROLE_USER
