@@ -158,10 +158,10 @@ class DefaultController extends AbstractController
                 'invalid_message' => 'Le mot de passe doit être le même.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                'first_options'  => ['label' => 'register.password'],
+                'second_options' => ['label' => 'register.repeat_password'],
                 'translation_domain' => 'messages',
-                'label_format' => 'register.%name%',
+                //'label_format' => 'register.%name%',
             ])
             ->getForm();
 

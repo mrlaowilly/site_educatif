@@ -20,7 +20,7 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
               'constraints' => [
                 new Assert\Email([
-            'message' => 'Votre email "{{ value }}" est pas invalide.',
+            'message' => 'Votre email "{{ value }}" est invalide.',
             'checkMX' => true,
             ])]
 
@@ -34,8 +34,8 @@ class UserType extends AbstractType
               'invalid_message' => 'Le mot de passe doit être le même.',
               'options' => ['attr' => ['class' => 'password-field']],
               'required' => true,
-              'first_options'  => ['label' => 'Password'],
-              'second_options' => ['label' => 'Repeat Password'],
+              'first_options'  => ['label' => 'password'],
+              'second_options' => ['label' => 'repeat_Password'],
             ]);
     }
 
