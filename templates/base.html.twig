@@ -46,19 +46,23 @@
                             <a class="nav-link" href="{{ path('logout_route') }}">{{ 'Se deconnecter' | upper }} </a>
 
                          </div>
-                            <strong>{{ app.user.email }}</strong>
+
                         {% else %}
                             {% if app.request.pathinfo != '/login' %}
                                 <div style="..."><a class="nav-link" href="{{ path('app_login') }}">{{ 'Se connecter' | upper }} </a>  </div>
                             {% endif %}
                         {% endif %}
                     </li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <li class="nav_item">
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a class="nav-link" href="{{ path('account') }}">{{ 'Mon Compte' | upper }} </a> <!-- ajout de la rubrique Mon Compte quand on se connecte -->
-                        {% endif %}
-                    </li>
 
+                            <a class="nav-link" href="{{ path('account') }}">{{ 'Mon Compte' | upper }} </a> <!-- ajout de la rubrique Mon Compte quand on se connecte -->
+
+                    </li>
+                    <li>
+                        <strong>{{ app.user.email }}</strong>
+                    </li>
+                    {% endif %}
 
 
                 </ul>
