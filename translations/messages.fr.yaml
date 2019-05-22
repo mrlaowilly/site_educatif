@@ -48,4 +48,4 @@ contact:
 register:
   email: votre email
   password: Votre mot de passe
-  
+  repeat_password: Veuillez répétez votre mot de passe.
