@@ -4,20 +4,29 @@
 
 
 {% block body %}
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
+
+
+<div class="container" style="background-color: rgba(241, 170, 170, 0.78)">
     <div class="row">
-        <div class="col-md-12 bg-primary">
+        <div class="col-md-12 ">
             <h1>Administration</h1>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-4"style="
+    margin-top: 42px;
+">
         <h2> Gestion des blogs </h2>
+
             <a href="{{ path('blog_index') }}"> Gestion des blogs...</a>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-4"style="
+    margin-top: 42px;
+">
         <h2> Gestion des pages </h2>
             <a href="{{ path ('page_index') }}"> Gestion des pages </a>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-4"style="
+    margin-top: 42px;
+">
         <h3>Gestion des utilisateurs</h3>
             <a href="{{ path ('user_index') }}"> Gestion des user </a>
         </div>
