@@ -81,10 +81,10 @@
                 </div>
                 <div class="col-12" style="text-align: center; padding-top: 3%;">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %} <!-- si celui-ci est identifier-->
-                    <a style="background: white; padding: 5px;" href="{{ path('blog_page_create', {'id': blog_id}) }}">Create new</a> <!-- c'est le chemin vers la page-->
+                    <a style="background: white; padding: 5px;" href="{{ path('blog_page_create', {'id': blog_id}) }}">{{ 'Create new' | trans }}</a> <!-- c'est le chemin vers la page-->
                     <span><strong>/</strong></span>
                     {% endif %}
-                    <a style="background: white; padding: 5px;" href="{{ path('home') }}">Home</a>
+                    <a style="background: white; padding: 5px;" href="{{ path('home') }}">{{ 'Home' | trans }}</a>
                 </div>
             </div>
     </div>

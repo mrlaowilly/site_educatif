@@ -13,7 +13,7 @@ UpdatedAT: Modifié le
 Descriptif: Description
 Author: L'auteur
 Actions: Action
-Create new: Nouvelle Création
+Create new: Nouveau
 show: Afficher
 edit: Editer
 
@@ -31,6 +31,7 @@ Create new User: Créer un nouvel utilisateur
 Edit User: Modifier l'utilisateur
 Update: mettre à jour
 Delete: Supprimer
+Home: Accueil
 
 
 
@@ -47,4 +48,4 @@ contact:
 register:
   email: votre email
   password: Votre mot de passe
-  
+  repeat_password: Veuillez répétez votre mot de passe.
