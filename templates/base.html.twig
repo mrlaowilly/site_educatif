@@ -56,27 +56,17 @@
 
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="nav_item">
-                          <a>{{ render(controller('App\\Controller\\DefaultController::getProfile')) }}</a>
                             <a class="nav-link" href="{{ path('account') }}"><strong>{{ app.user.email }}</strong></a>
                             <!-- ajout de la rubrique Mon Compte quand on se connecte -->
+                        </li>
+                        <li class="nav_item">
+                            <a>{{ render(controller('App\\Controller\\DefaultController::getProfile')) }}</a>
                         </li>
                         {% endif %}
                     </ul>
 
             </div>
         </nav>
-
-            {#<div class="container float-right">
-                <div class="row">
-
-                    <div class="col-md-10"></div>
-                    <div class="col-md-2 bg-warning" style="z-index: 999999999999999999;margin-top: -56px;/* border-radius: 30px; */padding: 4px;left: -79px;text-align: center;">
-
-
-                    </div>
-                </nav>#}
-
-
         {% endblock %}
     </header>
     <body>
