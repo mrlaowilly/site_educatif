@@ -250,7 +250,7 @@ class DefaultController extends AbstractController
         }
         $person = $repository->findOneBy(['user' => $this->getUser()]);
 
-        if ($person->getImage()) {
+        if ($person && $person->getImage()) {
             $person->setImage(
                 new File($this->getParameter('photo') . '/' . $person->getImage())
             );
