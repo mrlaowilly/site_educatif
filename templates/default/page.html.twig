@@ -25,7 +25,7 @@
             {#</tr>#}
             {#<tr>#}
                 {#<th>Content</th>#}
-                {#<td>{{ page.content }}</td>#}
+                {#<td>{{ page.content}}</td>#}
             {#</tr>#}
             {#</tbody>#}
         {#</table>#}
@@ -37,7 +37,7 @@
                 <p style="text-align: right; padding-top: 2%;">
                     <span style="text-transform: uppercase;"><strong>{{ page.preview }}</strong>
                     </span><br><span style="background-color: orangered; color: white;"> Par : {{ page.user.email }}</span></p>
-                <p style="text-align: right; background-color: white; padding-left: 30px; padding-bottom: 30px;">{{ page.content }}</p>
+                <p style="text-align: right; background-color: white; padding-left: 30px; padding-bottom: 30px;">{{ page.content | raw }}</p>
             </div>
             <div class="col-4" style="background-color: #218BC3; padding: 5%;">
                 <p style="text-transform: uppercase; color: white; font-size: 3vw; margin-bottom: 20%;"><strong>Astuces!</strong></p>
