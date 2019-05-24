@@ -47,9 +47,11 @@ page.content: Contenu
 
 
 
+
+
 Blog index: Liste des BLOGs
 
-Create new Blog: Création d'un nouveau blog
+Create new Blog: Création de Blog
 
 contact:
   nom:  Nom
@@ -64,9 +66,14 @@ register:
 
 
 app_login:
-
   sign_in: Connectez-vous
   email: Email
   password: Mot de passe
   connect: Connexion
 
+account:
+
+  FirstName: Prénom
+  LastName: Nom
+  image: Avatar
+  description: Bio
