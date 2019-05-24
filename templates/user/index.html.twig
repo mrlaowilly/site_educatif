@@ -1,39 +1,71 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}User index{% endblock %}#}
+
+{#{% block body %}#}
+{#<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">#}
+    {#<h1>{{ 'User index' | trans }}</h1>#}
+
+    {#<table class="table">#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>{{ 'Id' | trans }}</th>#}
+                {#<th>{{ 'mail' | trans }}</th>#}
+                {#<th>{{ 'Roles' | trans }}</th>#}
+                {#<th>{{ 'actions' | trans }}</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for user in users %}#}
+            {#<tr>#}
+                {#<td>{{ user.id }}</td>#}
+                {#<td>{{ user.email }}</td>#}
+                {#<td>{{ user.roles ? user.roles|json_encode : '' }}</td>#}
+                {#<td>#}
+                    {#<a href="{{ path('user_show', {'id': user.id}) }}">{{ 'show' | trans }}</a>#}
+                    {#<a href="{{ path('user_edit', {'id': user.id}) }}">{{ 'edit' | trans }} </a>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="5">no records found</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<a href="{{ path('user_new') }}">{{ 'Create new' | trans }}</a>#}
+{#</div>#}
+{#{% endblock %}#}
+
+
+
 {% extends 'base.html.twig' %}
-
-{% block title %}User index{% endblock %}
-
+{% block title %}Blog index{% endblock %}
 {% block body %}
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    <h1>{{ 'User index' | trans }}</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'Id' | trans }}</th>
-                <th>{{ 'mail' | trans }}</th>
-                <th>{{ 'Roles' | trans }}</th>
-                <th>{{ 'actions' | trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="container">
+        <div class="row">
+            <img src="{{ asset('image/bandeauS.jpg') }}" style="width: 100%; height: 100%;">
+            <h1 style="text-transform: uppercase; font-size: 5vw; color: white;"><strong>{{ 'User index' | trans }}</strong></h1>
+        </div>
         {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">{{ 'show' | trans }}</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">{{ 'edit' | trans }} </a>
-                </td>
-            </tr>
+            <p style="background-color: white; padding-left: 15px; margin-bottom: 0%; text-transform: uppercase;"><strong>{{ 'Id' | trans }} : {{ user.id }} {{ 'Roles' | trans }} : {{ user.roles ? user.roles|json_encode : '' }}</strong></p>
+            <p style="background-color: rgba(255, 255, 255, 0.5); padding-left: 15px; text-transform: uppercase;">
+                <strong>{{ 'mail' | trans }} :</strong>{{ user.email }}<br>
+                <a style="background-color: white;" href="{{ path('user_show', {'id': user.id}) }}">{{ 'show' | trans }}</a>
+                <span> | </span>
+                <a style="background-color: white;" href="{{ path('user_edit', {'id': user.id}) }}"> {{ 'edit' | trans }}</a>
+            </p>
         {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
+            <h2>no records found</h2>
         {% endfor %}
-        </tbody>
-    </table>
+        <div class="col-12" style="text-align: center;">
+            <br>
+            <a style="background: white; text-transform: uppercase; padding: 10px;" href="{{ path('user_new') }}">{{ 'Create new' | trans }}</strong></a>
+        </div>
 
-    <a href="{{ path('user_new') }}">{{ 'Create new' | trans }}</a>
-</div>
+    </div>
 {% endblock %}

@@ -55,10 +55,11 @@
                         </li>
 
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li class="nav_item">
+                        <!-- <li class="nav_item">
                             <a class="nav-link" href="{{ path('account') }}"><strong>{{ app.user.email }}</strong></a>
+
+                        </li> -->
                             <!-- ajout de la rubrique Mon Compte quand on se connecte -->
-                        </li>
                         <li class="nav_item">
                             <a>{{ render(controller('App\\Controller\\DefaultController::getProfile')) }}</a>
                         </li>

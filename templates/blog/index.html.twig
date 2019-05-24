@@ -1,51 +1,77 @@
+{#{% extends 'base.html.twig' %}#}
+{#{% block title %}Blog index{% endblock %}#}
+{#{% block body %}#}
+{#<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">#}
+    {#<h1>{{  "Blog index" | trans }}</h1>#}
+
+    {#<table class="table">#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>{{ 'Id' | trans }}</th>#}
+                {#<th>{{ 'Title' | trans }}</th>#}
+                {#<th>{{ 'CreatedAt' | trans }}</th>#}
+                {#<th>{{ 'UpdatedAT' | trans }}</th>#}
+                {#<th>{{ 'Descriptif' | trans }}</th>#}
+                {#<th>{{ 'Author' | trans }}</th>#}
+                {#<th>{{ 'Actions' | trans }}</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+
+        {#{% for blog in blogs %}#}
+            {#<tr>#}
+                {#<td>{{ blog.id }}</td>#}
+                {#<td>{{ blog.title }}</td>#}
+                {#<td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                {#<td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                {#<td>{{ blog.descriptif }}</td>#}
+                {#<td>{{ blog.author }}</td>#}
+                {#<td>#}
+                    {#<a href="{{ path('blog_show', {'id': blog.id}) }}">{{ 'show' | trans }}</a>#}
+                    {#<a href="{{ path('blog_edit', {'id': blog.id}) }}"> {{ 'edit' | trans }}</a>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="7">no records found</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<a href="{{ path('blog_new') }}">{{ 'Create new' | trans }}</a>#}
+{#</div>#}
+
+
 {% extends 'base.html.twig' %}
-
 {% block title %}Blog index{% endblock %}
-
 {% block body %}
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    <h1>{{  "Blog index" | trans }}</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'Id' | trans }}</th>
-                <th>{{ 'Title' | trans }}</th>
-                <th>{{ 'CreatedAt' | trans }}</th>
-                <th>{{ 'UpdatedAT' | trans }}</th>
-                <th>{{ 'Descriptif' | trans }}</th>
-                <th>{{ 'Author' | trans }}</th>
-                <th>{{ 'Actions' | trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
 
-        {% for blog in blogs %}
-            <tr>
-                <td>{{ blog.id }}</td>
-                <td>{{ blog.title }}</td>
-                <td>{{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ blog.descriptif }}</td>
-                <td>{{ blog.author }}</td>
-                <td>
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">{{ 'show' | trans }}</a>
-                    <a href="{{ path('blog_edit', {'id': blog.id}) }}"> {{ 'edit' | trans }}</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
+    <div class="row">
+        <img src="{{ asset('image/bandeauS.jpg') }}" style="width: 100%; height: 100%;">
+        <h1 style="text-transform: uppercase; font-size: 5vw; color: white;"><strong>{{  "Blog index" | trans }}</strong></h1>
+    </div>
+    {% for blog in blogs %}
+            <p style="background-color: white; padding-left: 15px; margin-bottom: 0%; text-transform: uppercase;"><strong>{{ 'Id' | trans }} : {{ blog.id }} {{ 'Title' | trans }} : {{ blog.title}}</strong></p>
+            <p style="background-color: rgba(255, 255, 255, 0.5); padding-left: 15px; text-transform: uppercase;">
+                <strong>{{ 'CreatedAt' | trans }} :</strong> {{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}<br>
+                <strong>{{ 'UpdatedAT' | trans }} :</strong> {{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }}<br>
+                <strong>{{ 'Descriptif' | trans }} :</strong> {{ blog.descriptif }}<br>
+                <strong>{{ 'Author' | trans }} :</strong> {{ blog.author }}<br>
+                <a style="background-color: white;" href="{{ path('blog_show', {'id': blog.id}) }}">{{ 'show' | trans }}</a>
+                <span> | </span>
+                <a style="background-color: white;" href="{{ path('blog_edit', {'id': blog.id}) }}"> {{ 'edit' | trans }}</a>
+            </p>
+    {% else %}
+        <h2>no records found</h2>
+    {% endfor %}
+    <div class="col-12" style="text-align: center;">
+        <br>
+        <a style="background: white; text-transform: uppercase; padding: 10px;" href="{{ path('blog_new') }}"><strong>{{ 'Create new' | trans }}</strong></a>
+    </div>
 
-    <a href="{{ path('blog_new') }}">{{ 'Create new' | trans }}</a>
 </div>
 {% endblock %}
-
-
-
-{% endblock %}
-
