@@ -23,7 +23,11 @@ class PageType extends AbstractType
          * */
         $builder
             ->add('title', TextType::class)
-            ->add('content', TextareaType::class)
+            ->add('content', TextareaType::class, [
+                'attr'=>[
+                  'class'=> 'ckeditor'
+                ]
+            ])
             ->add('preview', TextType::class)
             ->add('photo', FileType::class);
 
