@@ -1,39 +1,73 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Page index{% endblock %}#}
+
+{#{% block body %}#}
+{#<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">#}
+    {#<h1>Page index</h1>#}
+
+    {#<table class="table">#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>{{ 'id' | trans }}</th>#}
+                {#<th>{{ 'title' | trans }}</th>#}
+                {#<th>{{ 'Content' | trans }}</th>#}
+                {#<th>{{ 'actions' | trans }}</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for page in pages %}#}
+            {#<tr>#}
+                {#<td>{{ page.id }}</td>#}
+                {#<td>{{ page.title }}</td>#}
+                {#<td>{{ page.content }}</td>#}
+                {#<td>#}
+                    {#<a href="{{ path('page_show', {'id': page.id}) }}"> {{ 'show' | trans }}</a>#}
+                    {#<a href="{{ path('page_edit', {'id': page.id}) }}"> {{ 'edit' | trans }}</a>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="4">no records found</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<a href="{{ path('page_new') }}">{{ 'Create new' | trans }}</a>#}
+{#</div>#}
+{#{% endblock %}#}
+
+
 {% extends 'base.html.twig' %}
-
 {% block title %}Page index{% endblock %}
-
 {% block body %}
-<div class="container" style="background-color: rgba(200, 200, 200, 0.8)">
-    <h1>Page index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'id' | trans }}</th>
-                <th>{{ 'title' | trans }}</th>
-                <th>{{ 'Content' | trans }}</th>
-                <th>{{ 'actions' | trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="container">
+        <div class="row">
+            <img src="{{ asset('image/bandeauS.jpg') }}" style="width: 100%; height: 100%;">
+            <h1 style="text-transform: uppercase; font-size: 5vw; color: white;"><strong>{{  "Page index" | trans }}</strong></h1>
+        </div>
         {% for page in pages %}
-            <tr>
-                <td>{{ page.id }}</td>
-                <td>{{ page.title }}</td>
-                <td>{{ page.content }}</td>
-                <td>
-                    <a href="{{ path('page_show', {'id': page.id}) }}"> {{ 'show' | trans }}</a>
-                    <a href="{{ path('page_edit', {'id': page.id}) }}"> {{ 'edit' | trans }}</a>
-                </td>
-            </tr>
+            <p style="background-color: white; padding-left: 15px; margin-bottom: 0%; text-transform: uppercase;"><strong>{{ 'id' | trans }} : {{ page.id }} {{ 'title' | trans }} : {{ page.title}}</strong></p>
+            <p style="background-color: rgba(255, 255, 255, 0.5); padding-left: 15px; text-transform: uppercase;">
+                <strong>{{ 'Content' | trans }} :</strong> {{ page.content }}<br>
+                <strong>{{ 'Introduction' | trans }} :</strong> {{ page.preview }}<br>
+                <strong>{{ 'Auteur' | trans }} :</strong> {{ page.user.email }}<br>
+                <img style="width: 100%; height: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
+                <a style="background-color: white;" href="{{ path('page_show', {'id': page.id}) }}">{{ 'show' | trans }}</a>
+                <span> | </span>
+                <a style="background-color: white;" href="{{ path('page_edit', {'id': page.id}) }}">{{ 'edit' | trans }}</a>
+            </p>
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+            <h2>no records found</h2>
         {% endfor %}
-        </tbody>
-    </table>
+        <div class="col-12" style="text-align: center;">
+            <br>
+            <a style="background: white; text-transform: uppercase; padding: 10px;" href="{{ path('page_new') }}"><strong>{{ 'Create new' | trans }}</strong></a>
+        </div>
 
-    <a href="{{ path('page_new') }}">{{ 'Create new' | trans }}</a>
-</div>
+    </div>
 {% endblock %}
