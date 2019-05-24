@@ -50,20 +50,25 @@
             <img src="{{ asset('image/bandeauS.jpg') }}" style="width: 100%; height: 100%;">
             <h1 style="text-transform: uppercase; font-size: 5vw; color: white;"><strong>{{  "Page index" | trans }}</strong></h1>
         </div>
+        {#{% for blog in blogs %}#}
+            {#<p style="background-color: white; padding-left: 15px; margin-bottom: 0%; text-transform: uppercase;"><strong>{{ 'Id' | trans }} : {{ blog.id }} {{ 'Title' | trans }} : {{ blog.title}}</strong></p>#}
+        {#{% endfor %}#}
         {% for page in pages %}
             <p style="background-color: white; padding-left: 15px; margin-bottom: 0%; text-transform: uppercase;"><strong>{{ 'id' | trans }} : {{ page.id }} {{ 'title' | trans }} : {{ page.title}}</strong></p>
             <p style="background-color: rgba(255, 255, 255, 0.5); padding-left: 15px; text-transform: uppercase;">
+                <strong>{{ 'Blog' | trans }} :</strong> {{ page.blog.title }}<br>
                 <strong>{{ 'Content' | trans }} :</strong> {{ page.content }}<br>
                 <strong>{{ 'Introduction' | trans }} :</strong> {{ page.preview }}<br>
                 <strong>{{ 'Auteur' | trans }} :</strong> {{ page.user.email }}<br>
-                <img style="width: 100%; height: 100%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
+                <img style="width: 10%;" src="{{ asset('uploads/photos/' ~ page.photo) }}">
+
                 <a style="background-color: white;" href="{{ path('page_show', {'id': page.id}) }}">{{ 'show' | trans }}</a>
                 <span> | </span>
                 <a style="background-color: white;" href="{{ path('page_edit', {'id': page.id}) }}">{{ 'edit' | trans }}</a>
             </p>
-        {% else %}
-            <h2>no records found</h2>
-        {% endfor %}
+            {% else %}
+                <h2>no records found</h2>
+            {% endfor %}
         <div class="col-12" style="text-align: center;">
             <br>
             <a style="background: white; text-transform: uppercase; padding: 10px;" href="{{ path('page_new') }}"><strong>{{ 'Create new' | trans }}</strong></a>
