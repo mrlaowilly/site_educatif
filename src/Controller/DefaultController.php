@@ -96,7 +96,7 @@ class DefaultController extends AbstractController
 
        $form->handleRequest($request); // a chaque methode il y a toujours un retour ...
 
-        if ($form->isSubmitted() <&& $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $page->setBlog($blog); // setter le blog
             $page->setUser($this->getUser()); // setter l'utilisateur
 
