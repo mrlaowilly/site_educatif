@@ -1,37 +1,72 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Hello AdminController!{% endblock %}#}
+{#{% block body %}#}
+
+
+{#<div class="container" style="background-color: rgba(241, 170, 170, 0.78)">#}
+    {#<div class="row">#}
+        {#<div class="col-md-12 ">#}
+            {#<h1 style="margin-top: 20px; margin-left: 20px; text-transform: uppercase;">Administration</h1>#}
+        {#</div>#}
+
+        {#<div class="col-md-4"style="margin-top: 3%;">#}
+            {#<h3>Gestion des blogs</h3>#}
+            {#<a href="{{ path('blog_index') }}"> Gestion des blogs</a>#}
+        {#</div>#}
+
+        {#<div class="col-md-4"style="margin-top: 3%;">#}
+            {#<h3>Gestion des pages</h3>#}
+            {#<a href="{{ path ('page_index') }}"> Gestion des pages </a>#}
+        {#</div>#}
+
+        {#<div class="col-md-4"style="margin-top: 3%;">#}
+            {#<h3>Gestion des utilisateurs</h3>#}
+            {#<a href="{{ path ('user_index') }}"> Gestion des user </a>#}
+        {#</div>#}
+
+    {#</div>#}
+{#</div>#}
+
+{#{% endblock %}#}
+
+
+
 {% extends 'base.html.twig' %}
-
 {% block title %}Hello AdminController!{% endblock %}
-
-
 {% block body %}
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="container">
+        <div class="row">
+            <img src="{{ asset('image/bandeauS.jpg') }}" style="width: 100%; height: 100%;">
+            <h1 style="text-transform: uppercase; font-size: 5vw; color: white;"><strong>Administration</strong></h1>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color: white;">
+                <strong style="text-transform: uppercase; font-size: 1em;">Gestion des blogs</strong>
+            </div>
+            <div class="col-12" style="background-color: rgba(255, 255, 255, 0.5); margin-bottom: 1%;">
+                <a href="{{ path('blog_index') }}">Acces a la liste des blogs <img style="width: 2%; float: right;" src="{{ asset('image/click.png') }}" alt="canard"/></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color: white;">
+                <strong style="text-transform: uppercase; font-size: 1em;">Gestion des pages</strong>
+            </div>
+            <div class="col-12" style="background-color: rgba(255, 255, 255, 0.5); margin-bottom: 1%;">
+                <a href="{{ path ('page_index') }}">Acces a la liste des pages <img style="width: 2%; float: right;" src="{{ asset('image/click.png') }}" alt="canard"/></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color: white;">
+                <strong style="text-transform: uppercase; font-size: 1em;">Gestion des users</strong>
+            </div>
+            <div class="col-12" style="background-color: rgba(255, 255, 255, 0.5); margin-bottom: 1%;">
+                <a href="{{ path ('user_index') }}">Acces a la liste des users <img style="width: 2%; float: right;" src="{{ asset('image/click.png') }}" alt="canard"/></a>
+            </div>
+        </div>
 
-<div class="container" style="background-color: rgba(241, 170, 170, 0.78)">
-    <div class="row">
-        <div class="col-md-12 ">
-            <h1>Administration</h1>
-        </div>
-        <div class="col-md-4"style="
-    margin-top: 42px;
-">
-        <h2> Gestion des blogs </h2>
-
-            <a href="{{ path('blog_index') }}"> Gestion des blogs...</a>
-        </div>
-        <div class="col-md-4"style="
-    margin-top: 42px;
-">
-        <h2> Gestion des pages </h2>
-            <a href="{{ path ('page_index') }}"> Gestion des pages </a>
-        </div>
-        <div class="col-md-4"style="
-    margin-top: 42px;
-">
-        <h3>Gestion des utilisateurs</h3>
-            <a href="{{ path ('user_index') }}"> Gestion des user </a>
-        </div>
     </div>
-</div>
 {% endblock %}
-
 
