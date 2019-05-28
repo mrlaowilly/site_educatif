@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-12" style=>
     <div class="form">
-    {{ include('page/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('page/_form.html.twig', {'button_label':'Update' | trans  }) }}
 
     <a href="{{ path('blog_show', {'id': page.blog.id}) }}">{{ 'back to list' | trans }}</a>
 

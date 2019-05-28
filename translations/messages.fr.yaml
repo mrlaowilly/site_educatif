@@ -1,7 +1,7 @@
 blog:
   title: Le titre du blog
   updatedAt: Modifier le
-  descriptif: desciption
+  descriptif: Description
   author: L'auteur
   user: L'adresse électronique d'admin
 
@@ -29,7 +29,7 @@ User: Utilisateurs
 User index: Index utilisateur
 Create new User: Créer un nouvel utilisateur
 Edit User: Modifier l'utilisateur
-Update: mettre à jour
+Update: Mettre à jour
 Delete: Supprimer
 Home: Accueil
 
