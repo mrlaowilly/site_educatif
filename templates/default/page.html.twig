@@ -36,7 +36,13 @@
                 <h1 style="text-transform: uppercase; background-color: white; text-align: right; padding-top: 3%; padding-bottom: 3%;"><strong>{{ page.title }}</strong></h1>
                 <p style="text-align: right; padding-top: 2%;">
                     <span style="text-transform: uppercase;"><strong>{{ page.preview }}</strong>
-                    </span><br><span style="background-color: orangered; color: white;"> Par : {{ page.user.email }}</span></p>
+
+                      {% set name = 'Anonyme' %}
+                      {% if person is defined %}
+                      {% set name = person.Firstname %}
+                      {% endif %}
+
+                    </span><br><span style="background-color: orangered; color: white;"> Par : {{ name }}</span></p>
                 <p style="text-align: right; background-color: white; padding-left: 30px; padding-bottom: 30px;">{{ page.content | raw }}</p>
             </div>
             <div class="col-4" style="background-color: #218BC3; padding: 5%;">

@@ -64,10 +64,13 @@ class DefaultController extends AbstractController
     /**
      * @Route("/blog/page/{id}", name="blog_page_show")
      */
-    public function showPage(Page $page)
+    public function showPage(Page $page, PersonRepository $repository)
     {
+        $person = $repository->findOneBy(['user' => $this->getUser()]);
+
         return $this->render('default/page.html.twig',[
-            'page' => $page
+            'page' => $page,
+            'person' => $person,
         ]);
     }
 

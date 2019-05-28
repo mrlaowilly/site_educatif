@@ -32,9 +32,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('apropos') }}">A PROPOS</a>
                             </li>
+                            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('register') }}">INSCRIPTION</a>
                             </li>
+                            {% endif %}
 
                             {% if is_granted('ROLE_ADMIN') %}   <!-- sa sert a cree  un lien  pour l'admin-->
                             <li class="nav-item">

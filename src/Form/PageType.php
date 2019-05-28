@@ -49,7 +49,7 @@ class PageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Page::class,
-            'label_format' => 'page.%name%', //permet la traduction des champas des formulaire
+            'label_format' => 'page.%name%', //permet la traduction des champs des formulaires
             'user' => null, // pour ajouter l'option
         ]);
     }
