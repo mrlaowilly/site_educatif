@@ -85,7 +85,11 @@ class DefaultController extends AbstractController
 
        $form = $this->createFormBuilder($page)
            ->add('title', TextType::class)
-           ->add('content', TextareaType::class)
+           ->add('content', TextareaType::class, [
+               'attr'=>[
+                 'class'=> 'ckeditor'
+                ]
+              ])
            ->add('photo', FileType::class)
            ->add('preview', TextType::class)
            ->getForm();
@@ -250,7 +254,7 @@ class DefaultController extends AbstractController
         }
         $person = $repository->findOneBy(['user' => $this->getUser()]);
 
-        if ($person->getImage()) {
+        if ($person && $person->getImage()) {
             $person->setImage(
                 new File($this->getParameter('photo') . '/' . $person->getImage())
             );
@@ -276,6 +280,9 @@ class DefaultController extends AbstractController
                 'translation_domain' => 'messages',
                 'label_format' => 'account.%name%',
                 'required' => false,
+                    'attr'=>[
+                      'class'=> 'ckeditor'
+                    ]
             ])
             ->getForm();
 
